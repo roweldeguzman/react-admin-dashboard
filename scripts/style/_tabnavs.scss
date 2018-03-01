@@ -1,0 +1,74 @@
+.tab-nav:not(.tn-vertical) {
+    white-space: nowrap;
+    overflow: auto;
+	box-shadow: inset 0 -2px 0 0 #eee;
+	outline: none;
+}
+.tab-nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.tab-nav.tn-justified:not(.tn-vertical) > li {
+    display: table-cell;
+    width: 1%;
+    text-align: center;
+}
+.tab-nav:not(.tn-vertical) > li {
+    display: inline-block;
+    vertical-align: top;
+}
+.tab-nav:not(.tn-vertical) > li.active > a {
+	color: #000;
+	outline: none;
+}
+.tab-nav:not(.tn-vertical) > li > a {
+    -webkit-transition: all;
+    -o-transition: all;
+    transition: all;
+    -webkit-transition-duration: 250ms;
+    transition-duration: 250ms;
+}
+.tab-nav > li > a {
+	padding: 15px;
+	text-decoration: none;
+}
+.tab-nav > li > a {
+    display: block;
+    color: #7a7a7a;
+    text-transform: uppercase;
+    position: relative;
+    font-weight: 500;
+}
+.tab-nav:not(.tn-vertical):not([data-tab-color]) > li > a::before {
+    background: #00717f;
+}
+.tab-nav:not(.tn-vertical) > li.active > a::before {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1);
+}
+.tab-nav:not(.tn-vertical) > li > a::before {
+    content: '';
+    height: 3px;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    right: 0;
+    top: 0;
+    -webkit-transition: all;
+    -o-transition: all;
+    transition: all;
+    -webkit-transition-duration: 205ms;
+    transition-duration: 250ms;
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+    -o-transform: scale(0);
+    transform: scale(0);
+    transition: .5s cubic-bezier(.35,0,.25,1);
+}
+
+.tab-content {
+    padding: 20px 0;
+}

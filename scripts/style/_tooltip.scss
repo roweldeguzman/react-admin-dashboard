@@ -1,0 +1,161 @@
+.tooltip{
+	-webkit-animation-name: zoomIn;
+    animation-name: zoomIn;
+    -webkit-animation-duration: 200ms;
+    animation-duration: 200ms;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+	transform-origin: center;
+	&.top .tooltip-arrow{
+    	border-top-color: $primary !important;
+	}
+	&.right .tooltip-arrow{
+    	border-right-color: $primary !important;
+	}
+	&.left .tooltip-arrow{
+    	border-left-color: $primary !important;
+	}
+	&.bottom .tooltip-arrow{
+    	border-bottom-color: $primary !important;
+	}
+    &.primary .tooltip-inner{
+        background-color: $primary !important;
+	}
+	
+	&.tooltip-black{
+		&.top .tooltip-arrow{ border-top-color: $black !important; }
+		&.right .tooltip-arrow{ border-right-color: $black !important; }
+		&.left .tooltip-arrow{ border-right-color: $black !important; }
+		&.bottom .tooltip-arrow{ border-right-color: $black !important; }
+		& .tooltip-inner{ background-color: $black !important; }
+	}
+	&.tooltip-brown{
+		&.top .tooltip-arrow{ border-top-color: $brown !important; }
+		&.right .tooltip-arrow{ border-right-color: $brown !important; }
+		&.left .tooltip-arrow{ border-right-color: $brown !important; }
+		&.bottom .tooltip-arrow{ border-right-color: $brown !important; }
+		& .tooltip-inner{ background-color: $brown !important; }
+	}
+	&.tooltip-pink{
+		&.top .tooltip-arrow{ border-top-color: $pink !important; }
+		&.right .tooltip-arrow{ border-right-color: $pink !important; }
+		&.left .tooltip-arrow{ border-right-color: $pink !important; }
+		&.bottom .tooltip-arrow{ border-right-color: $pink !important; }
+		& .tooltip-inner{ background-color: $pink !important; }
+	}
+	&.tooltip-red{
+		&.top .tooltip-arrow{ border-top-color: $red !important; }
+		&.right .tooltip-arrow{ border-right-color: $red !important; }
+		&.left .tooltip-arrow{ border-right-color: $red !important; }
+		&.bottom .tooltip-arrow{ border-right-color: $red !important; }
+		& .tooltip-inner{ background-color: $red !important; }
+	} 
+	&.tooltip-blue{
+		&.top .tooltip-arrow{ border-top-color: $blue !important; }
+		&.right .tooltip-arrow{ border-right-color: $blue !important; }
+		&.left .tooltip-arrow{ border-right-color: $blue !important; }
+		&.bottom .tooltip-arrow{ border-right-color: $blue !important; }
+		& .tooltip-inner{ background-color: $blue !important; }
+	}
+	&.tooltip-purple{
+		&.top .tooltip-arrow{ border-top-color: $purple !important; }
+		&.right .tooltip-arrow{ border-right-color: $purple !important; }
+		&.left .tooltip-arrow{ border-right-color: $purple !important; }
+		&.bottom .tooltip-arrow{ border-right-color: $purple !important; }
+		& .tooltip-inner{ background-color: $purple !important; }
+    }
+    &.tooltip-deeppurple{
+		&.top .tooltip-arrow{ border-top-color: $deeppurple !important; }
+		&.right .tooltip-arrow{ border-right-color: $deeppurple !important; }
+		&.left .tooltip-arrow{ border-right-color: $deeppurple !important; }
+		&.bottom .tooltip-arrow{ border-right-color: $deeppurple !important; }
+		& .tooltip-inner{ background-color: $deeppurple !important; }
+    }
+    &.tooltip-lightblue{
+		&.top .tooltip-arrow{ border-top-color: $lightblue !important; }
+		&.right .tooltip-arrow{ border-right-color: $lightblue !important; }
+		&.left .tooltip-arrow{ border-right-color: $lightblue !important; }
+		&.bottom .tooltip-arrow{ border-right-color: $lightblue !important; }
+		& .tooltip-inner{ background-color: $lightblue !important; }
+    }
+    &.tooltip-cyan{
+		&.top .tooltip-arrow{ border-top-color: $cyan !important; }
+		&.right .tooltip-arrow{ border-right-color: $cyan !important; }
+		&.left .tooltip-arrow{ border-right-color: $cyan !important; }
+		&.bottom .tooltip-arrow{ border-right-color: $cyan !important; }
+		& .tooltip-inner{ background-color: $cyan !important; }
+    }
+    &.tooltip-teal{
+		&.top .tooltip-arrow{ border-top-color: $teal !important; }
+		&.right .tooltip-arrow{ border-right-color: $teal !important; }
+		&.left .tooltip-arrow{ border-right-color: $teal !important; }
+		&.bottom .tooltip-arrow{ border-right-color: $teal !important; }
+		& .tooltip-inner{ background-color: $teal !important; }
+        
+    }
+    &.tooltip-green{
+		&.top .tooltip-arrow{ border-top-color: $green !important; }
+		&.right .tooltip-arrow{ border-right-color: $green !important; }
+		&.left .tooltip-arrow{ border-right-color: $green !important; }
+		&.bottom .tooltip-arrow{ border-right-color: $green !important; }
+		& .tooltip-inner{ background-color: $green !important; }
+    }
+    &.tooltip-orange{
+		&.top .tooltip-arrow{ border-top-color: $orange !important; }
+		&.right .tooltip-arrow{ border-right-color: $orange !important; }
+		&.left .tooltip-arrow{ border-right-color: $orange !important; }
+		&.bottom .tooltip-arrow{ border-right-color: $orange !important; }
+		& .tooltip-inner{ background-color: $orange !important; }
+    }
+    &.tooltip-lightgreen{
+		&.top .tooltip-arrow{ border-top-color: $lightgreen !important; }
+		&.right .tooltip-arrow{ border-right-color: $lightgreen !important; }
+		&.left .tooltip-arrow{ border-right-color: $lightgreen !important; }
+		&.bottom .tooltip-arrow{ border-right-color: $lightgreen !important; }
+		& .tooltip-inner{ background-color: $lightgreen !important; }
+	}
+	&.tooltip-lime{
+		&.top .tooltip-arrow{ border-top-color: $lime !important; }
+		&.right .tooltip-arrow{ border-right-color: $lime !important; }
+		&.left .tooltip-arrow{ border-right-color: $lime !important; }
+		&.bottom .tooltip-arrow{ border-right-color: $lime !important; }
+		& .tooltip-inner{ background-color: $lime !important; }
+	}
+	&.tooltip-yellow{
+		
+		&.top .tooltip-arrow{ border-top-color: $yellow !important; }
+		&.right .tooltip-arrow{ border-right-color: $yellow !important; }
+		&.left .tooltip-arrow{ border-right-color: $yellow !important; }
+		&.bottom .tooltip-arrow{ border-right-color: $yellow !important; }
+		& .tooltip-inner{ background-color: $yellow !important; }
+	}
+	&.tooltip-amber{
+		&.top .tooltip-arrow{ border-top-color: $amber !important; }
+		&.right .tooltip-arrow{ border-right-color: $amber !important; }
+		&.left .tooltip-arrow{ border-right-color: $amber !important; }
+		&.bottom .tooltip-arrow{ border-right-color: $amber !important; }
+		& .tooltip-inner{ background-color: $amber !important; }
+	}
+	&.tooltip-gray{
+		&.top .tooltip-arrow{ border-top-color: $gray !important; }
+		&.right .tooltip-arrow{ border-right-color: $gray !important; }
+		&.left .tooltip-arrow{ border-right-color: $gray !important; }
+		&.bottom .tooltip-arrow{ border-right-color: $gray !important; }
+		& .tooltip-inner{ background-color: $gray !important; }
+	}
+	&.tooltip-indigo{
+		&.top .tooltip-arrow{ border-top-color: $indigo !important; }
+		&.right .tooltip-arrow{ border-right-color: $indigo !important; }
+		&.left .tooltip-arrow{ border-right-color: $indigo !important; }
+		&.bottom .tooltip-arrow{ border-right-color: $indigo !important; }
+		& .tooltip-inner{ background-color: $indigo !important; }
+    }
+    &.tooltip-bluegray{
+		&.top .tooltip-arrow{ border-top-color: $bluegray !important; }
+		&.right .tooltip-arrow{ border-right-color: $bluegray !important; }
+		&.left .tooltip-arrow{ border-right-color: $bluegray !important; }
+		&.bottom .tooltip-arrow{ border-right-color: $bluegray !important; }
+		& .tooltip-inner{ background-color: $bluegray !important; }
+    }
+    
+}

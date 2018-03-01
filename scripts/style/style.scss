@@ -1,0 +1,94 @@
+html, body { padding: 0; margin: 0; }
+html {
+    position: relative;
+    min-height: 100%;    
+}
+body{
+    font-family: roboto;
+    font-size: 13px;
+    line-height: 1.42857143;
+    color: #333;
+}
+
+.clear {
+    clear: both;
+}
+hr{
+    height: 2px;
+    background-color: $secondary;
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+}
+.full-round{
+    cursor: pointer;
+    height: 32px;
+    width: 32px;
+    background: $primary;
+    background-size: auto auto;
+    background-size: auto auto;
+    border-radius: 50%;
+    box-shadow: 0 1px 0 rgba(0,0,0,.15);
+    background-size: 32px 32px;
+    position: relative;
+    display: inline-block;
+}
+.full-round-txt{
+    padding-top: 17%;
+    color: #FFF;
+    text-align: center;
+    padding-right: 1px;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+}
+/* Perfect Scrollbar override attributes */
+.ps__rail-y {
+    width: 5px;
+    top: 0 !important;
+    right: 2px !important;
+}
+.ps__thumb-y{
+    width: 5px !important;
+    right: 0px !important;
+}
+.ps__rail-y:focus > .ps__thumb-y, 
+.ps__rail-y:hover > .ps__thumb-y {
+    width: 5px !important;
+    right: 0px !important;
+}
+
+// typeahead
+typeahead-container h5{
+	margin-top: 0px !important;
+	margin-bottom: 0px !important;
+}
+
+
+/* NOTIFY GROWL */
+.alert.alert-inverse{
+    background: #454545;
+    color: #FFF;
+    button.close:hover{
+        color: #FFF !important;       
+    }
+}
+/* sweet-alert */
+.sweet-alert {
+    border-radius: 2px;
+    padding: 10px 30px
+}
+.sweet-alert h2 {
+    font-size: 16px;
+    font-weight: 400;
+    position: relative;
+    z-index: 1
+}
+.sweet-alert .lead {
+    font-size: 13px
+}
+.sweet-alert .btn {
+    padding: 6px 12px;
+    font-size: 13px;
+    margin: 20px 2px 0
+}
+

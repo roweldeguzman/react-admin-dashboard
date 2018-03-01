@@ -1,0 +1,355 @@
+.profile-view {
+    text-align: center;
+}
+.profile-view:hover .pv-main {
+    -webkit-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    -o-transform: scale(1.2);
+    transform: scale(1.2);
+}
+.profile-view .pv-header {
+    position: relative;
+    height: 145px;
+    width: 100%;
+    background-image: url('../assets/img/cal-header.jpg');
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-position: center;
+}
+.profile-view .pv-header > .pv-main {
+    border-radius: 50%;
+    width: 130px;
+    position: absolute;
+    height: 130px;
+    bottom: -50px;
+    left: 50%;
+    margin-left: -65px;
+    -webkit-transition: all;
+    -o-transition: all;
+    transition: all;
+    -webkit-transition-duration: 300ms;
+    transition-duration: 300ms;
+}
+.profile-view .pv-body {
+    margin-top: 70px;
+    padding: 0 20px 20px;
+}
+.profile-view .pv-body > h2 {
+    margin: 0;
+    line-height: 100%;
+    font-size: 20px;
+    font-weight: 400;
+}
+.profile-view .pv-body > small {
+    display: block;
+    color: #8E8E8E;
+    margin: 10px 0 15px;
+}
+.profile-view .pv-body .pv-contact, .profile-view .pv-body .pv-follow {
+    padding: 0;
+    list-style: none;
+}
+.profile-view .pv-body .pv-follow-btn {
+    padding: 7px 20px;
+    background: #00bcd4;
+    color: #FFF;
+    border-radius: 3px;
+    text-transform: uppercase;
+    display: block;
+    -webkit-transition: all;
+    -o-transition: all;
+    transition: all;
+    -webkit-transition-duration: 300ms;
+    transition-duration: 300ms;
+}
+.profile-view .pv-body .pv-contact, .profile-view .pv-body .pv-follow {
+    padding: 0;
+    list-style: none;
+}
+.profile-view .pv-body .pv-follow > li {
+    padding: 0 10px;
+}
+.profile-view .pv-body .pv-follow {
+    margin: 20px -20px;
+    padding: 10px;
+    background-color: #F7F7F7;
+    border-top: 1px solid #EEE;
+    border-bottom: 1px solid #EEE;
+}
+.profile-view .pv-body .pv-contact > li {margin: 0 5px;}
+.profile-view .pv-body .pv-contact > li, 
+.profile-view .pv-body .pv-follow > li {display: inline-block;}
+
+
+.profile {
+    position: relative;
+    .profile-banner{
+        position: relative;
+        height: 300px;
+        .banner-left{
+            width: 300px;
+            background-repeat: no-repeat;
+            background-size: cover; 
+            height: 300px;
+            float: left;
+            position: relative;
+            &::after{
+                content: "";
+                background: linear-gradient(to bottom,transparent 25%,rgba(0,0,0,.8));
+                width: 100%;
+                bottom: 0;
+                height: 100%;
+                position: absolute;
+                z-index: 1;
+            }
+            .profile-bottom-container{
+                z-index: 2;
+                bottom: 25px;
+                position: absolute;
+                width: 100%;
+                text-align: center;
+                h4{
+                    font-style: italic;
+                }
+                i{
+                    color: #5EA9DD;
+                    font-weight: bold;
+                    font-size: 20px;
+                    vertical-align: middle;
+                }
+            }            
+            .edit-container {
+                left: 10px;
+            }
+        }
+        .banner-right{
+            margin-left: 300px;
+            background-repeat: no-repeat;
+            background-size: cover; 
+            height: 300px;
+            position: relative;
+            .edit-container {
+                float: right;
+                right: 10px;
+            }
+        }
+        .edit-container {
+            width: 30px;
+            height: 30px;
+            background: $bluegray;
+            border-radius: 5px;
+            text-align: center;
+            top: 10px;
+            position: absolute;
+            cursor: pointer;
+            opacity: 0.8;
+            z-index: 2;
+            &:hover{
+                opacity: 1;
+            }
+            i{
+                color: #FFF;
+                padding-top: 5px;
+                font-size: 20px;
+            }
+        }
+        .profile-image{
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            border-radius: 50%;
+            top: 45%;
+            left: 15px;
+            border: 2px solid #455a64;
+        }
+    }
+    .left-pane{
+        width: 300px;
+        float: left;
+        position: absolute;
+        height: calc(100% - 280px);
+        top: 300px;
+        bottom: 0;
+        .profile-navigator{
+            background: $primary;
+            position: relative;
+            height: 100%;
+            li {
+                position: relative;
+                a{
+                    color: #556366;
+                    padding: 15px;
+                    display: block;
+                    &:hover{
+                        color: #FFF !important;
+                    }
+                    &::after{
+                        font-family: Material-Design-Iconic-Font;
+                        content: "\F2FB";
+                        right: 15px;
+                        position: absolute;
+                        font-size: 17px;
+                        top: 15px;
+                        bottom: 15px;
+                    }
+
+                    &.active{
+                        background: $light;
+                        color: #FFF !important;
+                    }
+                }
+            } 
+        }
+    }
+    .right-pane{
+        padding-left: 300px;
+        min-height: 250px;
+        .profile-container{
+            padding: 30px 30px 0;
+            .profile-header{
+                margin-bottom: 20px;
+                position: relative;
+                h2{
+                    margin: 0;
+                    font-weight: 100;
+                    font-size: 20px;
+                }
+            }
+            .profile-body{
+                .profile-view{
+                    text-align: left;
+                    padding-left: 15px;
+                    dt{
+                        float: left;
+                        width: 160px;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                    }
+                    dd{
+                        &::before, &::after{
+                            content: " ";
+                            display: table;
+                        }
+                        &::after{
+                            clear: both;
+                        }
+                    }
+                }
+            }
+        }
+        .extra-nav{
+            ul{
+                overflow: auto;
+                width: 100%;
+                display: block;
+                li{
+                    display: table-cell;
+                    width: 1%;
+                    text-align: center;
+                    a{
+                        color: $text;
+                        padding: 15px;
+                        display: inline-block;
+                        width: 100%;
+                        position: relative;
+                        transition: all;
+                        transition-duration: 0s;
+                        transition-duration: .25s;
+                        &::after{
+                            content: "";
+                            height: 3px;
+                            position: absolute;
+                            width: 100%;
+                            left: 0;
+                            right: 0;
+                            bottom: 0;
+                            -webkit-transition: all;
+                            -o-transition: all;
+                            transition: all;
+                            -webkit-transition-duration: 205ms;
+                            transition-duration: 250ms;
+                            -webkit-transform: scale(0);
+                            -ms-transform: scale(0);
+                            -o-transform: scale(0);
+                            transform: scale(0);
+                            background: $light;
+                            transition: .5s cubic-bezier(.35,0,.25,1);
+                        }
+                        &.active::after,
+                        &:hover::after{
+                            -webkit-transform: scale(1);
+                            transform: scale(1);
+                        }
+                        span{
+                            display: block;
+                            font-size: 20px;
+                            color: #5EA9DD;
+                        }
+                        i{
+                            display: block;
+                            font-size: 30px;
+                            color: #5EA9DD;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    @media screen and (max-width: 1024px){
+        
+    }
+    @media screen and (max-width: 767px){
+        .profile-banner{
+            .banner-left{
+                width: 100%;
+                float: none;
+            }
+            .banner-right{
+                display: none;
+            }            
+        }
+        .left-pane{
+            float: none;
+            display: block;
+            width: 100%;
+            position: relative;
+            top: 0;
+            bottom: 0;
+            .profile-navigator{
+                overflow: auto;
+                li{
+                    display: table-cell;
+                    width: 1%;
+                    text-align: center;
+                    
+                    a{
+                        display: inline-block;
+                        width: 100%;
+                        &::after{
+                            content: "" !important;
+                        }
+                    }
+                }
+            }
+        }
+        .right-pane{
+            padding-left: 0 !important;
+            padding-top: 5px !important;
+            .profile-container{
+                padding: 15px 0 0;
+                .profile-body{
+                    .profile-view{
+                        dt{
+                            float: none;
+                            display: block;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

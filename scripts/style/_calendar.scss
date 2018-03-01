@@ -1,0 +1,250 @@
+/* CALENDAR STYLE */
+.dp-parent .well{
+    padding: 0px !important;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.16),0 2px 10px rgba(0,0,0,0.12);
+}
+.dropdown-calendar{
+    border: none !important;
+    padding: 0px !important;
+    background-color: transparent !important;
+}
+.dropdown-calendar .well{
+    margin-bottom: 0px !important;
+}
+datepicker, daypicker, monthpicker, yearpicker{
+	outline: none;
+}
+datepicker button{
+	border: transparent !important;
+}
+
+datepicker monthpicker .text-info,
+datepicker yearpicker .text-info{
+    color: #333 !important;
+}
+/* dp-green */
+/* THEAD */
+datepicker.dp-green daypicker thead tr:first-child th,
+datepicker.dp-green daypicker thead tr:first-child th button,
+
+datepicker.dp-green monthpicker thead tr:first-child th,
+datepicker.dp-green monthpicker thead tr:first-child th button,
+
+datepicker.dp-green yearpicker thead tr:first-child th,
+datepicker.dp-green yearpicker thead tr:first-child th button{
+    background-color: #009688 !important;   
+}
+datepicker.dp-green daypicker thead tr:last-child th{
+    background-color: #00877a !important;
+}
+/*dp-blue*/
+datepicker.dp-blue daypicker thead tr:first-child th,
+datepicker.dp-blue daypicker thead tr:first-child th button,
+
+datepicker.dp-blue monthpicker thead tr:first-child th,
+datepicker.dp-blue monthpicker thead tr:first-child th button,
+
+datepicker.dp-blue yearpicker thead tr:first-child th,
+datepicker.dp-blue yearpicker thead tr:first-child th button{
+    background-color: #2196f3 !important;   
+}
+datepicker.dp-blue daypicker thead tr:last-child th{
+    background-color: #128ff2 !important;
+}
+/*dp-red*/
+datepicker.dp-red daypicker thead tr:first-child th,
+datepicker.dp-red daypicker thead tr:first-child th button,
+
+datepicker.dp-red monthpicker thead tr:first-child th,
+datepicker.dp-red monthpicker thead tr:first-child th button,
+
+datepicker.dp-red yearpicker thead tr:first-child th,
+datepicker.dp-red yearpicker thead tr:first-child th button{
+    background-color: #f44336 !important;   
+}
+datepicker.dp-red daypicker thead tr:last-child th{
+    background-color: #f33527 !important;
+}
+
+
+datepicker daypicker thead tr:last-child th{    
+    padding: 8px 0 9px !important;
+    color: #fff !important;
+    text-transform: uppercase !important;
+}
+datepicker daypicker thead tr:last-child th:first-child,
+datepicker monthpicker thead tr:last-child th:first-child,
+datepicker yearpicker thead tr:last-child th:first-child{
+    padding-left: 15px !important;
+}
+datepicker daypicker thead tr:last-child th:last-child,
+datepicker monthpicker thead tr:last-child th:last-child,
+datepicker yearpicker thead tr:last-child th:last-child{
+    padding-right: 15px !important;
+}
+
+datepicker daypicker thead tr:first-child th button,
+datepicker monthpicker thead tr:first-child th button,
+datepicker yearpicker thead tr:first-child th button{
+    color: #fff !important;
+    padding: 25px 0 23px !important;
+    font-weight: 400 !important;
+    font-size: 16px !important;
+    text-transform: uppercase !important;
+}
+/* dp-green */
+datepicker.dp-green daypicker thead tr:first-child th button:hover,
+datepicker.dp-green daypicker thead tr:first-child th button:active,
+
+datepicker.dp-green monthpicker thead tr:first-child th button:hover,
+datepicker.dp-green monthpicker thead tr:first-child th button:active,
+
+datepicker.dp-green yearpicker thead tr:first-child th button:hover,
+datepicker.dp-green yearpicker thead tr:first-child th button:active{
+    background-color: #009688 !important;
+    color: #FFF !important;
+    box-shadow: none !important;
+}
+/* dp-blue */
+datepicker.dp-blue daypicker thead tr:first-child th button:hover,
+datepicker.dp-blue daypicker thead tr:first-child th button:active,
+
+datepicker.dp-blue monthpicker thead tr:first-child th button:hover,
+datepicker.dp-blue monthpicker thead tr:first-child th button:active,
+
+datepicker.dp-blue yearpicker thead tr:first-child th button:hover,
+datepicker.dp-blue yearpicker thead tr:first-child th button:active{
+    background-color: #2196f3 !important;
+    color: #FFF !important;
+    box-shadow: none !important;
+}
+/* dp-red */
+datepicker.dp-red daypicker thead tr:first-child th button:hover,
+datepicker.dp-red daypicker thead tr:first-child th button:active,
+
+datepicker.dp-red monthpicker thead tr:first-child th button:hover,
+datepicker.dp-red monthpicker thead tr:first-child thbutton:active,
+
+datepicker.dp-red yearpicker thead tr:first-child th button:hover,
+datepicker.dp-red yearpicker thead tr:first-child th button:active{
+    background-color: #f44336 !important;
+    color: #FFF !important;
+    box-shadow: none !important;
+}
+/*First Child */
+datepicker daypicker thead tr:first-child th:first-child,
+datepicker monthpicker thead tr:first-child th:first-child,
+datepicker yearpicker thead tr:first-child th:first-child{
+    padding-left: 15px !important;
+}
+/* Last Child */
+datepicker daypicker thead tr:first-child th:last-child,
+datepicker monthpicker thead tr:first-child th:last-child,
+datepicker yearpicker thead tr:first-child th:last-child{
+    padding-right: 15px !important;
+}
+
+/* TBODY */
+datepicker daypicker tbody tr td:first-child,
+datepicker monthpicker tbody tr td:first-child,
+datepicker yearpicker tbody tr td:first-child{
+    padding-left: 15px !important;
+}
+datepicker daypicker tbody tr td:last-child,
+datepicker monthpicker tbody tr td:last-child,
+datepicker yearpicker tbody tr td:last-child{
+    padding-right: 15px !important;
+}
+datepicker daypicker tbody tr:first-child td,
+datepicker monthpicker tbody tr:first-child td,
+datepicker yearpicker tbody tr:first-child td{
+    padding-top: 15px !important;
+}
+datepicker daypicker tbody tr:last-child td,
+datepicker monthpicker tbody tr:last-child td,
+datepicker yearpicker tbody tr:last-child td{
+    padding-bottom: 15px !important;
+}
+datepicker daypicker tbody tr td button.disabled,
+datepicker monthpicker tbody tr td button.disabled,
+datepicker yearpicker tbody tr td button.disabled{
+    color: #777 !important;
+    pointer-events: none;
+}
+datepicker daypicker tbody tr td button{
+    background-color: transparent !important;
+}
+datepicker daypicker tbody tr td button:hover,
+datepicker daypicker tbody tr td button:active,
+
+datepicker monthpicker tbody tr td button:hover,
+datepicker monthpicker tbody tr td button:active,
+
+datepicker yearpicker tbody tr td button:hover,
+datepicker yearpicker tbody tr td button:active{
+    background-color: #e6e6e6 !important;
+}
+datepicker daypicker tbody tr td button{
+    border-radius: 50% !important;
+    width: 32px !important;
+    height: 32px !important;
+    cursor: pointer !important;
+}
+datepicker monthpicker tbody tr td button,
+
+datepicker yearpicker tbody tr td button{
+    border-radius: 2px !important;
+    font-size: 12px !important;
+    cursor: pointer !important;
+    padding: 9px !important;
+    padding-top: 8px !important;
+    padding-left: 8.5px !important;
+}
+datepicker daypicker tbody tr td button span{
+    margin-left: -2px;
+}
+/* dp-green */
+datepicker.dp-green daypicker tbody tr td button.active,
+datepicker.dp-green monthpicker tbody tr td button.active,
+datepicker.dp-green yearpicker tbody tr td button.active{
+    background-color: #009688 !important;
+}
+/* dp-blue */
+datepicker.dp-blue daypicker tbody tr td button.active,
+datepicker.dp-blue monthpicker tbody tr td button.active,
+datepicker.dp-blue yearpicker tbody tr td button.active{
+    background-color: #2196f3 !important;
+}
+/* dp-red */
+datepicker.dp-red daypicker tbody tr td button.active,
+datepicker.dp-red monthpicker tbody tr td button.active,
+datepicker.dp-red yearpicker tbody tr td button.active{
+    background-color: #f44336 !important;
+}
+datepicker daypicker tbody tr td button span.text-muted {
+    pointer-events: none !important;
+}
+datepicker daypicker tbody tr td button.active span,
+datepicker monthpicker tbody tr td button.active span,
+datepicker yearpicker tbody tr td button.active span{
+    color: #FFF !important;
+}
+/* dp-green */
+datepicker.dp-green daypicker tbody tr td button.active:hover,
+datepicker.dp-green monthpicker tbody tr td button.active:hover,
+datepicker.dp-green yearpicker tbody tr td button.active:hover{
+    background-color: #009688 !important;
+}
+/* dp-blue */
+datepicker.dp-blue daypicker tbody tr td button.active:hover,
+datepicker.dp-blue monthpicker tbody tr td button.active:hover,
+datepicker.dp-blue yearpicker tbody tr td button.active:hover{
+    background-color: #2196f3 !important;
+}
+/* dp-red */
+datepicker.dp-red daypicker tbody tr td button.active:hover,
+datepicker.dp-red monthpicker tbody tr td button.active:hover,
+datepicker.dp-red yearpicker tbody tr td button.active:hover{
+    background-color: #f44336 !important;
+}

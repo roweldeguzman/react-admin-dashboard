@@ -1,0 +1,134 @@
+/* Card */
+.card {
+    position: relative;
+	background: #fff;
+	box-shadow: 0 2px 10px rgba(0,0,0,.2);
+	margin-bottom: 30px;
+    .card-header{
+		position: relative;
+        &:not(.ch-alt){
+            padding: 23px 25px;
+		}
+		&:not(.ch-alt):not([class*="bgm-"]) + .card-padding:not(.ch-alt) {
+			padding-top: 0;
+		}
+        &.ch-alt {
+            padding: 20px 23px;
+		}
+		&.ch-alt:not([class*="bgm-"]){
+			background-color: #f7f7f7;
+		}
+         h2{
+            margin: 0;
+            line-height: 100%;
+            font-size: 17px;
+            font-weight: 400;
+
+            small{
+                display: block;
+                margin-top: 5px;
+                color: #AEAEAE;
+                line-height: 160%;
+            }
+		}
+		
+		&[class*="bgm-"] h2,
+		&[class*="bgm-"] h2 small,
+		&[class*="bgm-"] i{
+			color: #fff;
+		}
+        .btn-float {			
+			right: 25px;
+			bottom: -23px;
+			z-index: 1;
+        }
+        .actions {
+            position: absolute;
+            right: 10px;
+            z-index: 2;
+            top: 15px;
+        }
+	}
+    .card-body.card-padding {
+        padding: 22px 22px;
+    }
+}
+.actions {
+    list-style: none;
+    padding: 0;
+    z-index: 2;
+	margin: 0;
+	
+	& > li {
+		display: inline-block;
+    	vertical-align: baseline;
+	}
+	& > li > a, & > a{
+		width: 30px;
+		height: 30px;
+		line-height: 35px;
+		display: inline-block;
+		text-align: center;
+		position: relative;
+		cursor: pointer;
+	}
+	& > li > a:hover::before,
+	& > a:hover::before,
+	& > li.open > a::before,
+	&.open > a::before{
+		-webkit-transform: scale3d(1,1,1);
+		-moz-transform: scale3d(1,1,1);
+		-ms-transform: scale3d(1,1,1);
+		-o-transform: scale3d(1,1,1);
+		transform: scale3d(1,1,1);
+		opacity: 1;
+		filter: alpha(opacity=100);
+	}
+	& > li > a::before,
+	a::before{
+		left: 0px;
+		top: -4px;
+		content: "";
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		-webkit-transform: scale3d(0,0,0);
+		-moz-transform: scale3d(0,0,0);
+		-ms-transform: scale3d(0,0,0);
+		-o-transform: scale3d(0,0,0);
+		transform: scale3d(0,0,0);
+		-webkit-transition: all;
+		-o-transition: all;
+		transition: all;
+		transition-duration: 0s;
+		-webkit-transition-duration: 250ms;
+		transition-duration: 250ms;
+		-webkit-backface-visibility: hidden;
+		-moz-backface-visibility: hidden;
+		backface-visibility: hidden;
+		background-color: rgba(0,0,0,0.1);
+		z-index: 0;
+		border-radius: 50%;
+		opacity: 0;
+		filter: alpha(opacity=0);
+	}
+	& > li > a > i, & > a > i{
+		-webkit-transition: color;
+		-o-transition: color;
+		transition: color;
+		transition-duration: 0s;
+		-webkit-transition-duration: .3s;
+		transition-duration: .3s;
+		color: #adadad;
+		font-size: 20px;
+	}
+	& > li > a:hover > i,
+	& > a:hover > i,
+	& > li.open > a > i,
+	&.open > a > i{
+		color: #000;
+	}
+	&.actions-alt > li > a > i {
+    	color: #fff;
+	}
+}

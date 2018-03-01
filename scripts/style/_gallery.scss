@@ -1,0 +1,223 @@
+.lv-img {
+    width: 48px;
+    height: 48px
+}
+.lv-img-sm {
+    width: 35px;
+    height: 35px
+}
+.lv-header {
+    text-align: center;
+    padding: 15px 10px 13px;
+    line-height: 100%;
+    text-transform: uppercase;
+    border-bottom: 1px solid #F0F0F0;
+    font-weight: 500;
+    color: #4C4C4C;
+    margin-bottom: 10px
+}
+.lv-header .actions {
+    position: absolute;
+    top: 6px;
+    right: 8px;
+    z-index: 10
+}
+.lvh-search {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 4;
+    background: #fff;
+    -webkit-animation-name: fadeIn;
+    animation-name: fadeIn;
+    -webkit-animation-duration: 300ms;
+    animation-duration: 300ms;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both
+}
+.lvh-search:before {
+    content: "\f1c3";
+    font-family: 'Material-Design-Iconic-Font';
+    position: absolute;
+    left: 24px;
+    top: 17px;
+    font-size: 22px
+}
+.lvhs-input {
+    border: 0;
+    padding: 0 26px 0 55px;
+    height: 63px;
+    font-size: 18px;
+    width: 100%;
+    font-weight: 100;
+    background: #fff;
+    border-bottom: 1px solid #EEE
+}
+.lvh-search-close {
+    font-style: normal;
+    position: absolute;
+    top: 23px;
+    right: 22px;
+    font-size: 17px;
+    width: 18px;
+    height: 18px;
+    background-color: #ADADAD;
+    line-height: 100%;
+    color: #fff;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 50%
+}
+.lvh-search-close:hover {
+    background: #333
+}
+.lv-header-alt {
+    position: relative;
+    background: #f8f8f8;
+    padding: 15px
+}
+.lv-header-alt .lv-actions {
+    z-index: 3;
+    float: right;
+    margin-top: 3px;
+    position: relative
+}
+.lv-header-alt .lv-actions > li > a {
+    margin: 0 3px
+}
+.lvh-label {
+    color: #818181;
+    display: inline-block;
+    margin: 0;
+    font-size: 14px;
+    font-weight: 400;
+    padding: 0 6px;
+    line-height: 33px;
+    vertical-align: middle
+}
+.lv-footer {
+    display: block;
+    text-align: center;
+    padding: 7px 10px 8px;
+    border-top: 1px solid #F0F0F0;
+    line-height: 100%;
+    font-size: 11px;
+    margin-top: 20px;
+    color: #828282
+}
+a.lv-footer:hover {
+    color: #050505
+}
+.card-body .lv-item {
+    padding: 12px 20px
+}
+
+
+
+.p-grid {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 23px;
+    text-align: center
+}
+.p-grid > li {
+    display: inline-block;
+    vertical-align: top;
+    width: 30px;
+    height: 30px;
+    border: 1px solid #D5D5D5;
+    line-height: 27px;
+    font-size: 12px;
+    color: #ABABAB;
+    border-radius: 50%;
+    cursor: pointer;
+    letter-spacing: -1px;
+    padding-right: 1px;
+    margin: 0 2px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none
+}
+.p-grid > li:hover {
+    border-color: silver
+}
+.p-grid > li.active {
+    color: #8C8C8C;
+    border-color: #8C8C8C
+}
+
+
+.load-more {
+    text-align: center;
+    margin-top: 30px
+}
+.load-more a {
+    padding: 5px 10px 4px;
+    display: inline-block;
+    background-color: #f44336;
+    color: #FFF;
+    border-radius: 2px;
+    white-space: nowrap
+}
+.load-more a i {
+    font-size: 20px;
+    vertical-align: middle;
+    position: relative;
+    margin-right: 5px
+}
+.load-more a:hover {
+    background-color: #ea1c0d
+}
+
+/* GALLERY TIMELINE */
+.p-timeline {
+    position: relative;
+    padding-left: 100px;
+    margin-bottom: 75px
+}
+.p-timeline [data-src] {
+    float: left;
+    width: 70px;
+    height: 70px;
+    margin: 0 3px 3px 0
+}
+.p-timeline:last-child .pt-line:before {
+    height: 100%
+}
+.ptb-title {
+    font-size: 15px;
+    font-weight: 400;
+    margin-bottom: 20px
+}
+.pt-line {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    line-height: 14px
+}
+.pt-line:before,
+.pt-line:after {
+    content: "";
+    position: absolute
+}
+.pt-line:before {
+    width: 1px;
+    height: calc(100% + 63px);
+    background: #E2E2E2;
+    top: 14px;
+    right: -20px
+}
+.pt-line:after {
+    top: 2px;
+    right: -26px;
+    width: 13px;
+    height: 13px;
+    border: 1px solid #C1C1C1;
+    border-radius: 50%
+}

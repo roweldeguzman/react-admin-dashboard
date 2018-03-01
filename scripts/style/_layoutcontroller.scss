@@ -1,0 +1,334 @@
+main{
+	margin-top: 70px;
+	.block-header,
+    .module-head{
+        margin-bottom: 25px;
+        padding-bottom: 15px;
+        position: relative;
+        border-bottom: 1px solid #DDD;
+        ul.module-action{
+            position: absolute;
+            right: 10px;
+            top: 0px;
+            z-index: 5;
+            //padding-top: 20px;
+            & > li:not(:first-child) {
+                padding-left: 20px;
+            }
+            & > li{
+                display: inline-block; 
+                vertical-align: middle;
+                & > a {
+                    width: 27px; 
+                    height: 27px; 
+                    display: inline-block; 
+                    text-align: center; 
+                    position: relative; 
+                    cursor: pointer; 
+                    border: 2px solid #B1C5C7; 
+                    border-radius: 50%;
+                    & > i {
+                        font-size: 18px;
+                        font-weight: bold;
+                        color: #B1C5C7;
+                        line-height: 23px;
+                    }
+                }
+                & > a.active,
+                & > a:hover{
+                    border: 2px solid #00B498;
+                    & > i {
+                        color: #00B498;
+                    }
+                }
+                &.dropdown.open{
+                    & > a{
+                        border: 2px solid #00B498;
+                        & > i {
+                            color: #00B498;
+                        }
+                    }
+                }
+            }
+        }
+        h2{
+            font-size: 24px;
+            color: #777;
+            margin-top: 0px !important;
+            margin-bottom: 0px !important;
+        }
+        .actions {
+            position: absolute;
+            right: 10px;
+            top: -5px;
+            z-index: 5;
+        }
+    }
+    .main-overlay{
+        width: 100%;
+        position: fixed;
+        height: 100%;
+        top: 50px;
+        bottom: 0;
+        background: pink;
+        left: 250px;
+        visibility: block;
+        z-index: 8;
+        &.active{
+            visibility: visible;
+        }
+    }
+    
+    footer{
+        ul li {
+            display: inline;
+            padding: 10px;
+        }
+    }
+}
+a {
+    cursor: pointer;
+    &:hover{ text-decoration:  none;  }
+}
+body.full-layout {
+	@media (min-width: 1025px){
+		main.container{
+			width: calc(100% - 250px);
+			margin-left: 250px !important;
+        }
+    }
+    @media (min-width: 768px) and (max-width: 1024px){
+        main.container{
+			width: calc(100% - 50px);
+			margin-left: 50px !important;
+        }
+        .aside-profile{
+            pointer-events: none;
+            height: 70px;
+            transition: height .3s;
+            img {
+                height: 32px;
+                width: 32px;
+                left: 10px;
+                transition: width .3s , height .3s, left .3s;
+            }
+            .labeled, .header-dropdown-icon {
+                opacity: 0;
+                transition: opacity .3s;
+            }
+        }
+
+        aside.active{
+            .aside-profile{
+                pointer-events: auto;
+                height: 150px;
+                transition: height .3s;
+                img {
+                    height: 50px !important;
+                    width: 50px !important;
+                    left: 16px !important;
+                    transition: width .3s , height .3s, left .3s;
+                }
+                .labeled, .header-dropdown-icon {
+                    opacity: 1;
+                    transition: opacity .3s;
+                }
+            }
+        }
+    }
+}
+
+body:not(.full-layout) {
+    @media (min-width: 768px){
+        header button.navbar-toggle.collapsed:not(.search-small){
+            display: block !important;
+            float: left;
+        }
+    }
+	aside{
+        transition-duration: .3s;
+        transform: translateX(-250px);
+
+        &.active{
+            transition-duration: .3s;
+            transform: translateX(0);
+        }
+    }
+    .bottom-collapser{
+        display: none;
+        transition-duration: .3s;
+    }
+}
+
+@media screen and (max-width: 1024px){
+    main{
+        //margin-left: 52px !important;
+        transition-duration: .3s;
+        .main-overlay{
+            left: 52px !important;
+        }
+    }
+    main.aside-active{
+        //margin-left: 250px !important;
+        transition-duration: .3s;
+    }
+}
+@media screen and (max-width: 767px){
+    main{
+        margin-left: 0px !important;
+        .main-overlay{
+            left: 0 !important;
+        }
+    }
+    body:not(.full-layout) {
+        aside{
+            display: block;
+        }
+    }
+}
+
+
+body[rg-skin="primary"]{
+    /* APP HEADER */
+    
+    nav, #search-mobile-container{
+        background: $primary !important;
+        border-bottom: $primary !important;
+    }
+    
+    /* APP SIDEBAR */
+    aside {
+        background: $primary;
+        .aside-profile{
+            background: $primary !important;
+        }
+
+    }
+    /* APP MAIN */
+    button.btn.btn-primary{
+        background-color: $primary !important;
+        border-color: $primary !important;
+    }
+    .tab-nav:not(.tn-vertical):not([data-tab-color]) > li > a::before,
+    .profile .right-pane .extra-nav ul li a::after{
+        background: $primary;
+    }
+    .search-div .main-search-menu-result > li.active, 
+    .search-div .main-search-menu-result > li:hover {
+        background-color: $primary;
+        a {
+            color: #ffffff !important;
+        }
+    }
+}
+
+
+$rg-skin: (
+    $blue blue,
+    $lightblue lightblue,
+    $bluegray bluegray,
+    $cyan cyan,
+    $teal teal,
+    $green green,
+    $orange orange,
+    $purple purple,
+    $indigo indigo,
+    $deeporange deeporange
+);
+
+@each $value in $rg-skin {
+    body[rg-skin="#{nth($value, 2)}"]{
+        header nav, #search-mobile-container {
+            background: nth($value, 1) !important;
+            border-bottom: nth($value, 1) !important;
+        }
+        aside {
+            background: #f3f3f3;
+            .aside-profile{
+                background: nth($value, 1) !important;
+            }
+            nav ul li {
+                & > a{
+                    .icon-circle{
+                        border: none !important;
+                        background: transparent !important;
+                    }
+                    &.active, &:hover{
+                        color: nth($value, 1) !important;
+                        i { 
+                            color: nth($value, 1) !important; 
+                        }
+                    }
+                }
+                &.sub-menu:not(.toggled) > a,
+                &.sub-menu.toggled > a{
+                    &:hover::after,
+                    &.active::after{
+                        color: nth($value, 1) !important;
+                    }
+                }
+            }
+            nav > .bottom-collapser .bottom-toggler{
+                background-color: nth($value, 1);
+            }
+        }
+        button.btn.btn-primary{
+            background-color: nth($value, 1) !important;
+            border-color: nth($value, 1) !important;
+        }
+        .tab-nav:not(.tn-vertical):not([data-tab-color]) > li > a::before,
+        .profile .right-pane .extra-nav ul li a::after{
+            background: nth($value, 1);
+        }
+        .search-div .main-search-menu-result > li.active, 
+        .search-div .main-search-menu-result > li:hover {
+            background-color: nth($value, 1);
+            a {
+                color: #ffffff !important;
+            }
+            
+        }
+        .checkbox .input-helper::after{
+            border-bottom: 2px solid nth($value, 1);
+            border-left: 2px solid nth($value, 1);
+        }
+        .radio .input-helper::after {
+            background: nth($value, 1);
+        }
+        .pagination > .active > a, 
+        .pagination > .active > a:focus, 
+        .pagination > .active > a:hover {
+            background-color: nth($value, 1) !important;
+            border-color: nth($value, 1) !important;
+        }
+        .full-round{
+            background: nth($value, 1) !important;
+        }
+        .modal.custom .modal-header {
+            background: nth($value, 1);
+        }
+        .ps__thumb-x, .ps__thumb-y,.ps__thumb-x:focus, .ps__thumb-x:hover, .ps__thumb-y:focus, .ps__thumb-y:hover,.ps__rail-y:focus>.ps__thumb-y, .ps__rail-y:hover>.ps__thumb-y,.ps__rail-y:focus>.ps__thumb-x, .ps__rail-y:hover>.ps__thumb-x {
+            background-color: nth($value, 1);
+        }
+        .rg-input-ripple{
+            background-color: nth($value, 1);
+        }
+        /* Selectize */
+        .selectize-input.focus::after, .selectize-input.has-items::after{
+            border-color: nth($value, 1) !important;
+        }
+        .selectize-dropdown .active,
+        .selectize-control.multi .selectize-input > div{
+            background-color: nth($value, 1);
+        }
+
+        .module-head ul.module-action > li > a.active, .module-head ul.module-action > li > a:hover,
+        .module-head ul.module-action > li.dropdown.open > a {
+            border: 2px solid nth($value, 1) !important;
+        }
+        .module-head ul.module-action > li > a.active > i, .module-head ul.module-action > li > a:hover > i,
+        .module-head ul.module-action > li.dropdown.open > a > i{
+            color: nth($value, 1) !important;
+        }
+    }
+}

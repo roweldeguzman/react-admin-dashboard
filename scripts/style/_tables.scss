@@ -1,0 +1,98 @@
+/* TABLE */
+.table {
+    background-color: #fff;
+    margin-bottom: 0;
+    font-family: inherit;
+    font-size: 13px;
+}
+.table > thead > tr > th {
+    background-color: #fff;
+    vertical-align: middle;
+    font-weight: 500;
+    color: #333;
+    border-width: 1px;
+    text-transform: uppercase
+}
+.table [class*="bg-"] > tr > th {
+    color: #fff;
+    border-bottom: 0
+}
+.table [class*="bg-"] + tbody > tr:first-child > td {
+    border-top: 0
+}
+.table.table-inner {
+    border: 0
+}
+.table > tbody > tr > td, 
+.table > tbody > tr > th, 
+.table > tfoot > tr > td, 
+.table > tfoot > tr > th, 
+.table > thead > tr > td, 
+.table > thead > tr > th{
+	padding: 13px;
+}
+.table > thead > tr > th:first-child,
+.table > tbody > tr > th:first-child,
+.table > tfoot > tr > th:first-child,
+.table > thead > tr > td:first-child,
+.table > tbody > tr > td:first-child,
+.table > tfoot > tr > td:first-child {
+    padding-left: 30px
+}
+.table > thead > tr > th:last-child,
+.table > tbody > tr > th:last-child,
+.table > tfoot > tr > th:last-child,
+.table > thead > tr > td:last-child,
+.table > tbody > tr > td:last-child,
+.table > tfoot > tr > td:last-child {
+    padding-right: 30px
+}
+.table > tbody > tr.active > td,
+.table > tfoot > tr.active > td,
+.table > tbody > tr.info > td,
+.table > tfoot > tr.info > td,
+.table > tbody > tr.warning > td,
+.table > tfoot > tr.warning > td,
+.table > tbody > tr.succes > td,
+.table > tfoot > tr.succes > td,
+.table > tbody > tr.danger > td,
+.table > tfoot > tr.danger > td {
+    border: 0
+}
+.table > tbody > tr:last-child > td,
+.table > tfoot > tr:last-child > td {
+    padding-bottom: 20px
+}
+.table-striped td,
+.table-striped th {
+    border: 0!important
+}
+.table-hover > tbody > tr:hover {
+    background-color: rgba(0, 0, 0, 0.075);
+}
+.table-bordered {
+    border-bottom: 0;
+    border-left: 0;
+    border-right: 0
+}
+.table-bordered > tbody > tr > td,
+.table-bordered > tbody > tr > th {
+    border-bottom: 0;
+    border-left: 0
+}
+.table-bordered > tbody > tr > td:last-child,
+.table-bordered > tbody > tr > th:last-child {
+    border-right: 0
+}
+.table-bordered > thead > tr > th {
+    border-left: 0
+}
+.table-bordered > thead > tr > th:last-child {
+    border-right: 0
+}
+.table-vmiddle td {
+    vertical-align: middle!important
+}
+.table-responsive {
+    border: 0
+}

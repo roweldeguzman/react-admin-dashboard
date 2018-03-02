@@ -120,11 +120,12 @@ export default class FormComponent extends Component {
 									</Col>
 								</Row>
 
-								{/* <DatePicker customInput={<ExampleCustomInput />} selected={this.state.startDate} onChange={this.handleChange} /> */}
+
 							</div>
 						</div>
 					</Col>
 				</Row>
+				<Row>{/* <DatePicker customInput={<ExampleCustomInput />} selected={this.state.startDate} onChange={this.handleChange} /> */}</Row>
 			</Fragment>
 		)
 	}

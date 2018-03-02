@@ -46,7 +46,8 @@ var _self = {
 			}
 		}
 		else if (type == 'class') {
-			while (obj.classList.contains(parentNode) === false) {
+			while (obj == null || obj.classList === undefined || obj.classList.contains(parentNode) === false) {
+				if (obj == null) { return null; break; }
 				obj = obj.parentNode;
 			}
 		}

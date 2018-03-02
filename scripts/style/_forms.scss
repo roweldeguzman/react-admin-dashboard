@@ -2,7 +2,6 @@
 .rg-input-underline {
     position: absolute;
     width: 100%;
-    
 	z-index: 4;
 	bottom: 0;
 }
@@ -13,9 +12,8 @@
     left: 0;
     width: 100%;
     transform-origin: 50%;
-    transform: scaleX(.3);
-    visibility: hidden;
-    transition: background-color .3s cubic-bezier(.55,0,.55,.2);
+    transform: scaleX(0);
+    transition: transform .2s linear, background-color .3s cubic-bezier(.55,0,.55,.2);
 }
 .input-group .rg-line .rg-input-underline .rg-input-ripple{
 	width: calc(100% - 20px);
@@ -36,7 +34,7 @@
 .rg-input-invalid .rg-input-underline .rg-input-ripple {
     visibility: visible;
     transform: scaleX(1);
-    transition: transform 150ms linear,background-color .3s cubic-bezier(.55,0,.55,.2);
+    transition: transform .2s linear, background-color .3s cubic-bezier(.55,0,.55,.2);
 }
 
 .form-group {

@@ -1,5 +1,5 @@
 var _self = {
-	asset_url: "https://template.roweldev.com"
+	asset_url: "../scripts"
 }
 
 module.exports.config = _self

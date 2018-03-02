@@ -18,6 +18,10 @@ require('./vendors/Waves/waves.min.css')
 
 /* Sparkline */
 require('./vendors/sparklines/jquery.sparkline.min.js')
+/* React Date Picker  */
+
+import 'react-datepicker/dist/react-datepicker.css';
+
 
 import Loading from './script-loader'
 

@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import ModuleHeader from '../../../common/module-header';
-import { Input, Textare } from '../../../components/input'
+import { Input, Textarea, Select } from '../../../components/input'
 import {Row, Col } from 'react-bootstrap';
 export default class FormBasic extends Component {
 	constructor(props) {
@@ -103,7 +103,7 @@ export default class FormBasic extends Component {
 								<Row>
 									<Col sm={6}>
 										<div className="form-group rg-float">
-											<Input className="form-control input-sm" placeholder="This is Focused" autofocus="autofocus" />
+											<Input className="form-control input-sm" placeholder="This is Focused" autoFocus="autofocus" />
 										</div>
 									</Col>
 									<Col sm={6}>
@@ -113,6 +113,159 @@ export default class FormBasic extends Component {
 									</Col>
 								</Row>								
 							</div>							
+						</div>
+						
+						<div className="card">
+							<div className="card-header">
+								<h2>Textarea
+									<small>Form control which supports multiple lines of text. Change 'rows' attribute as necessary.</small>
+								</h2>
+							</div>
+							<div className="card-body card-padding">
+								<p className="c-black f-500 m-b-20">Basic Example</p>
+
+								<div className="form-group">
+									<Textarea className="form-control" rows="5" placeholder="Let us type some lorem ipsum...." />
+								</div>
+								<p className="c-black f-500 m-b-20">Disabled State</p>
+								<div className="form-group">
+									<Textarea className="form-control" rows="5" placeholder="Let us type some lorem ipsum...." disabled />
+								</div>
+							</div>
+						</div>
+
+
+						<div className="card">
+							<div className="card-header">
+								<h2>Select
+									<small>Use the default option, or add multiple to show multiple options at once.</small>
+								</h2>
+							</div>
+							<div className="card-body card-padding">
+								<Row>
+									<Col sm={6}>
+										<p className="c-black f-500 m-b-20">Basic Example</p>
+										<div className="form-group">
+											<Select className="form-control">
+												<option value="">-- Select an Option--</option>
+												<option>Option 1</option>
+												<option>Option 2</option>
+												<option>Option 3</option>
+												<option>Option 4</option>
+												<option>Option 5</option>
+											</Select>
+										</div>
+									</Col>
+									<Col sm={6}>
+										<p className="c-black f-500 m-b-20">Disabled Stat</p>
+										<div className="form-group">
+											<Select className="form-control" disabled>
+												<option value="">-- Select an Option--</option>
+												<option>Option 1</option>
+												<option>Option 2</option>
+												<option>Option 3</option>
+												<option>Option 4</option>
+												<option>Option 5</option>
+											</Select>
+										</div>
+									</Col>
+								</Row>
+							</div>
+						</div>
+
+
+						<div className="card">
+							<div className="card-header">
+								<h2>Checkbox and Radio 
+									<small>Checkboxes are for selecting one or several options in a list, while radios are for selecting one option from many.</small>
+								</h2>
+							</div>
+							<div className="card-body card-padding">
+								<p class="c-black f-500 m-b-20">Basic Example</p>
+		
+								<div class="checkbox m-b-15">
+									<label>
+										<input type="checkbox" value=""/>
+										<i class="input-helper"></i>
+										Option one is this and that-be sure to include why it's great
+									</label>
+								</div>
+						
+								<div class="checkbox disabled">
+									<label>
+										<input type="checkbox" value="" disabled=""/>
+										<i class="input-helper"></i>
+										Option two is disabled
+									</label>
+								</div>
+						
+								<br/>
+						
+								<div class="radio m-b-15">
+									<label>
+										<input type="radio" name="sample" value=""/>
+										<i class="input-helper"></i>
+										Option one is this and that-be sure to include why it's great
+									</label>
+								</div>
+						
+								<div class="radio m-b-15">
+									<label>
+										<input type="radio" name="sample" value=""/>
+										<i class="input-helper"></i>
+										Option two can be something else and selecting it will deselect option one
+									</label>
+								</div>
+						
+								<div class="radio disabled">
+									<label>
+										<input type="radio" value="" disabled=""/>
+										<i class="input-helper"></i>
+										Option three is disabled
+									</label>
+								</div>
+						
+								<br/>
+								<p class="c-black f-500 m-b-20 m-t-20">Inline Checkboxes and Radios - Use the '.checkbox-inline' or '.radio-inline' classes on a series of checkboxes or radios
+									for controls that appear on the same line.</p>
+						
+								<label class="checkbox checkbox-inline m-r-20">
+									<input type="checkbox" value="option1"/>
+									<i class="input-helper"></i>
+									1
+								</label>
+								<label class="checkbox checkbox-inline m-r-20">
+									<input type="checkbox" value="option2"/>
+									<i class="input-helper"></i>
+									2
+								</label>
+								<label class="checkbox checkbox-inline m-r-20">
+									<input type="checkbox" value="option3"/>
+									<i class="input-helper"></i>
+									3
+								</label>
+						
+								<br/>
+								<br/>
+						
+								<label class="radio radio-inline m-r-20">
+									<input type="radio" name="inlineRadioOptions" value="option1"/>
+									<i class="input-helper"></i>
+									1
+								</label>
+						
+								<label class="radio radio-inline m-r-20">
+									<input type="radio" name="inlineRadioOptions" value="option2"/>
+									<i class="input-helper"></i>
+									2
+								</label>
+						
+								<label class="radio radio-inline m-r-20">
+									<input type="radio" name="inlineRadioOptions" value="option3"/>
+									<i class="input-helper"></i>
+									3
+								</label>
+							</div>
 						</div>
 					</Col>
 				</Row>

@@ -1,4 +1,10 @@
-html, body { padding: 0; margin: 0; }
+html, body, .react-datepicker > * {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 13px;
+}
+
 html {
     position: relative;
     min-height: 100%;    

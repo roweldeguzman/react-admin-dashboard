@@ -9,7 +9,7 @@ import profile from '../assets/images/profile.jpeg'
 import createBrowserHistory from 'history/createBrowserHistory'
 import header from './header';
 import Ripple from '../components/ripple'
-
+import Scrollbar from '../components/scrollbar'
 const sidebarHelper = require('../helper/sidebar').sidebarHelper
 const helper = require('../helper/helper').helper
 
@@ -71,6 +71,7 @@ class SideBar extends Component {
 		})
 		
 	}
+	setScrollerRef(ref) {}
 	render() {
 		return (
 			<Fragment>
@@ -85,7 +86,7 @@ class SideBar extends Component {
 							<i className={`${this.state.profile ? "rotate" : ""} zmdi zmdi-chevron-down zmdi-hc-fw`}></i>
 						</div>
 					</Ripple>
-					<nav id="for-scroll">
+					<Scrollbar type="nav" id="for-scroll" recieveRef={this.setScrollerRef} >
 						<ul className="list-unstyled">
 							<Collapse in={this.state.profile}>
 								<div className="aside-dropdown">
@@ -351,7 +352,7 @@ class SideBar extends Component {
 								<i className="zmdi zmdi-chevron-right"></i>
 							</div>
 						</div>
-					</nav>
+					</Scrollbar>
 				</aside>
 				<div className="overlay" onClick={sidebarHelper.expandNavHead} ></div>
 			</Fragment>

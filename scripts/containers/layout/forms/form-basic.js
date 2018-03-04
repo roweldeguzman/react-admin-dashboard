@@ -181,88 +181,88 @@ export default class FormBasic extends Component {
 								</h2>
 							</div>
 							<div className="card-body card-padding">
-								<p class="c-black f-500 m-b-20">Basic Example</p>
+								<p className="c-black f-500 m-b-20">Basic Example</p>
 		
-								<div class="checkbox m-b-15">
+								<div className="checkbox m-b-15">
 									<label>
 										<input type="checkbox" value=""/>
-										<i class="input-helper"></i>
+										<i className="input-helper"></i>
 										Option one is this and that-be sure to include why it's great
 									</label>
 								</div>
 						
-								<div class="checkbox disabled">
+								<div className="checkbox disabled">
 									<label>
 										<input type="checkbox" value="" disabled=""/>
-										<i class="input-helper"></i>
+										<i className="input-helper"></i>
 										Option two is disabled
 									</label>
 								</div>
 						
 								<br/>
 						
-								<div class="radio m-b-15">
+								<div className="radio m-b-15">
 									<label>
 										<input type="radio" name="sample" value=""/>
-										<i class="input-helper"></i>
+										<i className="input-helper"></i>
 										Option one is this and that-be sure to include why it's great
 									</label>
 								</div>
 						
-								<div class="radio m-b-15">
+								<div className="radio m-b-15">
 									<label>
 										<input type="radio" name="sample" value=""/>
-										<i class="input-helper"></i>
+										<i className="input-helper"></i>
 										Option two can be something else and selecting it will deselect option one
 									</label>
 								</div>
 						
-								<div class="radio disabled">
+								<div className="radio disabled">
 									<label>
 										<input type="radio" value="" disabled=""/>
-										<i class="input-helper"></i>
+										<i className="input-helper"></i>
 										Option three is disabled
 									</label>
 								</div>
 						
 								<br/>
-								<p class="c-black f-500 m-b-20 m-t-20">Inline Checkboxes and Radios - Use the '.checkbox-inline' or '.radio-inline' classes on a series of checkboxes or radios
+								<p className="c-black f-500 m-b-20 m-t-20">Inline Checkboxes and Radios - Use the '.checkbox-inline' or '.radio-inline' classes on a series of checkboxes or radios
 									for controls that appear on the same line.</p>
 						
-								<label class="checkbox checkbox-inline m-r-20">
+								<label className="checkbox checkbox-inline m-r-20">
 									<input type="checkbox" value="option1"/>
-									<i class="input-helper"></i>
+									<i className="input-helper"></i>
 									1
 								</label>
-								<label class="checkbox checkbox-inline m-r-20">
+								<label className="checkbox checkbox-inline m-r-20">
 									<input type="checkbox" value="option2"/>
-									<i class="input-helper"></i>
+									<i className="input-helper"></i>
 									2
 								</label>
-								<label class="checkbox checkbox-inline m-r-20">
+								<label className="checkbox checkbox-inline m-r-20">
 									<input type="checkbox" value="option3"/>
-									<i class="input-helper"></i>
+									<i className="input-helper"></i>
 									3
 								</label>
 						
 								<br/>
 								<br/>
 						
-								<label class="radio radio-inline m-r-20">
+								<label className="radio radio-inline m-r-20">
 									<input type="radio" name="inlineRadioOptions" value="option1"/>
-									<i class="input-helper"></i>
+									<i className="input-helper"></i>
 									1
 								</label>
 						
-								<label class="radio radio-inline m-r-20">
+								<label className="radio radio-inline m-r-20">
 									<input type="radio" name="inlineRadioOptions" value="option2"/>
-									<i class="input-helper"></i>
+									<i className="input-helper"></i>
 									2
 								</label>
 						
-								<label class="radio radio-inline m-r-20">
+								<label className="radio radio-inline m-r-20">
 									<input type="radio" name="inlineRadioOptions" value="option3"/>
-									<i class="input-helper"></i>
+									<i className="input-helper"></i>
 									3
 								</label>
 							</div>

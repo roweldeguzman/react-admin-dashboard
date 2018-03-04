@@ -18,9 +18,8 @@ require('./vendors/Waves/waves.min.css')
 
 /* Sparkline */
 require('./vendors/sparklines/jquery.sparkline.min.js')
-/* React Date Picker  */
-
-import 'react-datepicker/dist/react-datepicker.css';
+/* perfect-scrollbar  */
+require('perfect-scrollbar/css/perfect-scrollbar.css')
 
 
 import Loading from './script-loader'
@@ -181,6 +180,12 @@ class Applayout extends Component {
 								<Route path="*" component={PageNotFound} />
 
 							</Switch>
+							<footer className="text-center" id="footer">
+								<span className="ng-scope">React Admin Dashboard</span>
+								<ul className="f-menu list-unstyled">
+									<li><a>Home</a></li>
+								</ul>
+							</footer>
 						</main>
 					</div>
 				</Router>

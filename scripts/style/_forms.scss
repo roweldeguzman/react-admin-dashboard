@@ -93,6 +93,7 @@
     -moz-appearance: none;
     padding: 0;
 }
+
 .form-control {
     position: relative;
     border: 0;
@@ -114,7 +115,20 @@
     -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
     transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
 }
-
+.input-lg{
+    height: 40px;
+    padding: 10px 16px;
+    font-size: 17px;
+    line-height: 1.3333333;
+    border-radius: 0;
+}
+.input-sm {
+    height: 30px;
+    padding: 5px 10px;
+    font-size: 12px;
+    line-height: 1.5;
+    border-radius: 2px;
+}
 .rg-float .rg-focused + label.rg-label{
     color: $primary;
 } 
@@ -195,7 +209,6 @@
     font-weight: 400 !important;
 }
 .form-control:active, .form-control:focus {
-    /*border-bottom-color: #b4b4b4;*/
     border-color: none !important;
     box-shadow: none !important;
 }
@@ -217,7 +230,6 @@
     padding: 0 !important;
     border-radius: 0 !important;
     border: 0 !important;
-    /*padding-bottom: 4px !important;*/
     background: transparent !important;
 }
 .input-group-addon .zmdi {

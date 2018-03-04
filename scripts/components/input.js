@@ -1,4 +1,6 @@
 import React, { Component, Fragment } from 'react'
+import InputMask from 'react-input-mask';
+
 const helper = require('../helper/helper').helper
 
 export default class UI extends Component {
@@ -47,7 +49,9 @@ export class Input extends UI {
 	constructor(props) {
 		super(props)
 	}
-	
+	componentDidMount(){
+
+	}
 	render() {
 		return (
 			<Fragment>
@@ -64,6 +68,40 @@ export class Input extends UI {
 	}
 }
 
+export class Inputmask extends UI{
+	constructor(props){
+		super(props)
+	}
+
+	render(){
+		return (
+			<Fragment>
+				<div className="rg-line">
+					<InputMask { ...this.props } onFocus={(e) => this.focus(e)} onBlur={(e) => this.blur(e)} />
+					<div className="rg-input-underline">
+						<span className="rg-input-ripple"></span>
+					</div>
+				</div>
+				{this.props.float ? <label className="rg-label">{this.props.float}</label> : ""}
+			</Fragment>
+		)
+	}
+}
+
+export class InputDate extends UI{
+	constructor(props) {
+		super(props)
+	}
+
+	handleChangeDate() { }
+	render() {
+		return (
+			<div className="form-group">
+				<Input className="form-control" onClick={this.props.onClick} value={this.props.value} onChange={this.handleChangeDate} />
+			</div>
+		)
+	}
+}
 export class Select extends UI {
 	constructor(props) {
 		super(props)

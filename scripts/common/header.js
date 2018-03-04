@@ -31,6 +31,33 @@ class Header extends Component {
 					title: "Jonathan Poquiz",
 					message: "Sample Message for Jonathan Poquiz"
 				}
+			],
+			result: [
+				{ content: "Content 1" },
+				{ content: "Content 2" },
+				{ content: "Content 3" },
+				{ content: "Content 4" },
+				{ content: "Content 5" },
+				{ content: "Content 6" },
+				{ content: "Content 7" },
+				{ content: "Content 8" },
+				{ content: "Content 9" },
+				{ content: "Content 10" },
+				{ content: "Content 11" },
+				{ content: "Content 12" },
+				{ content: "Content 13" },
+				{ content: "Content 14" },
+				{ content: "Content 15" },
+				{ content: "Content 16" },
+				{ content: "Content 17" },
+				{ content: "Content 18" },
+				{ content: "Content 19" },
+				{ content: "Content 20" },
+				{ content: "Content 21" },
+				{ content: "Content 22" },
+				{ content: "Content 23" },
+				{ content: "Content 24" },
+				{ content: "Content 25" }
 			]
 		}
 		this._forceOpen = false
@@ -77,6 +104,14 @@ class Header extends Component {
 				searchContainer.classList.remove("active")
 			}
 		}		
+	}
+	scrollToBottom(event){
+		let top = event.target.scrollTop,
+			topMax = event.target.scrollTopMax;
+		
+		if (top == topMax){
+			console.log("You've reach the bottom")
+		}
 	}
 	render() {
 		return (
@@ -150,7 +185,7 @@ class Header extends Component {
 								</a>
 							</li>
 							<li className="search-parent pull-right hidden-xs">
-								<HeaderSearch size="desktop"/>
+								<HeaderSearch size="desktop" content={this.state.result} scrollBottom={this.scrollToBottom} />
 							</li>
 							<li className="pull-right hidden-xs">
 								<a className="no-hover">
@@ -164,7 +199,7 @@ class Header extends Component {
 					</div>
 					<div className="container-fluid visible-xs" id="search-mobile-container">
 						<div className="seach-mobile-body">
-							<HeaderSearch size="mobile" close={<button className="btn mobile-search-close" onClick={() => { this.showHideSearchMobile("hide") }} > <i className="zmdi zmdi-arrow-left"></i></button >}/>
+							<HeaderSearch size="mobile" content={this.state.result} scrollBottom={this.scrollToBottom} close={<button className="btn mobile-search-close" onClick={() => { this.showHideSearchMobile("hide") }} > <i className="zmdi zmdi-arrow-left"></i></button >}/>
 						</div>
 					</div>
 				</nav>

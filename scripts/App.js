@@ -66,6 +66,8 @@ class Applayout extends Component {
 		this.setState({
 			state_location: location.pathname
 		})
+		ga('set', 'page', location.pathname);
+        ga('send', 'pageview');
 	}
 	componentDidMount(){
 		document.querySelector(".preloader-base").remove()

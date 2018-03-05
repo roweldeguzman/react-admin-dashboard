@@ -33,7 +33,4 @@ node_modules
 # App packaged
 /static
 
-#asset
-/scripts/assets/
-
 .idea

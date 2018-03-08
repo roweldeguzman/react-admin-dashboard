@@ -34,3 +34,5 @@ node_modules
 /static
 
 .idea
+
+package-lock.json

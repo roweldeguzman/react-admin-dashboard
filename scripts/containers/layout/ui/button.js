@@ -458,14 +458,14 @@ export default class UIButton extends Component {
 								<small> Place a '.btn-group' within another '.btn-group' when you want dropdown menus mixed with a series of buttons. </small>
 								<br />
 								<ButtonToolbar>
-								{["default", "primary", "info", "success", "warning", "danger"].map((btn, i) => (
+								{["default", "primary", "info"].map((btn, i) => (
 									
 									<div className="btn-group m-r-5" key={i}>
 										<Ripple type="button" className={`btn btn-${btn}`}>1</Ripple>
-										<Ripple type="button" className={`btn btn-${btn}`}>2</Ripple>
+										<Ripple type="button" className={`btn btn-${btn}`}>2</Ripple>										
 										<Dropdown id={`dropdown-group-${btn}`} key={i}>
 											<Dropdown.Toggle className={`btn-${btn}`} >{btn}</Dropdown.Toggle>
-											<Dropdown.Menu className="pull-left">
+											<Dropdown.Menu className="dropdown-menu-left">
 												<MenuItem eventKey="1">Action</MenuItem>
 												<MenuItem eventKey="2">Another action</MenuItem>
 												<MenuItem eventKey="3">Something else here</MenuItem>
@@ -474,7 +474,23 @@ export default class UIButton extends Component {
 											</Dropdown.Menu>
 										</Dropdown>
 									</div>
+								))}
+								{["success", "warning", "danger"].map((btn, i) => (
 									
+									<div className="btn-group m-r-5" key={i}>
+										<Ripple type="button" className={`btn btn-${btn}`}>1</Ripple>
+										<Ripple type="button" className={`btn btn-${btn}`}>2</Ripple>										
+										<Dropdown id={`dropdown-group-${btn}`} key={i} dropup>
+											<Dropdown.Toggle className={`btn-${btn}`} >{btn}</Dropdown.Toggle>
+											<Dropdown.Menu className="dropdown-menu-left">
+												<MenuItem eventKey="1">Action</MenuItem>
+												<MenuItem eventKey="2">Another action</MenuItem>
+												<MenuItem eventKey="3">Something else here</MenuItem>
+												<MenuItem divider />
+												<MenuItem eventKey="4">Separated link</MenuItem>
+											</Dropdown.Menu>
+										</Dropdown>
+									</div>
 								))}
 								</ButtonToolbar>
 

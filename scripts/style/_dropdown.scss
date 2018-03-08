@@ -46,6 +46,18 @@
 		background-color: #fff;
 		border: 1px solid transparent !important;
 		border-radius: 2px !important;
+		&.dropdown-menu-left{
+			-webkit-transform-origin: top left;
+			-moz-transform-origin: top left;
+			-ms-transform-origin: top left;
+			transform-origin: top left;
+		}
+		&:not(.dropdown-menu-left) {
+			-webkit-transform-origin: top right;
+			-moz-transform-origin: top right;
+			-ms-transform-origin: top right;
+			transform-origin: top right;
+		}
 		li > a {
 			padding: 8px 17px !important;
 			-webkit-transition: background-color  !important;
@@ -79,7 +91,36 @@
 		transition-duration: none !important;
 		transform-origin: none !important;
 	}
-	
+}
+.dropup{
+	& .dropdown-menu {
+		box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+		-webkit-transition: all;
+		-o-transition: all;
+		transition: all;
+		-webkit-transition-duration: 250ms;
+		transition-duration: 250ms;
+		-webkit-backface-visibility: hidden;
+		-moz-backface-visibility: hidden;
+		backface-visibility: hidden;
+		margin-top: 1px;
+		background-color: #fff;
+		border: 1px solid transparent !important;
+		border-radius: 2px !important;
+		
+		&.dropdown-menu-left{
+			-webkit-transform-origin: bottom left;
+			-moz-transform-origin: bottom left;
+			-ms-transform-origin: bottom left;
+			transform-origin: bottom left;
+		}
+		&:not(.dropdown-menu-left){
+			-webkit-transform-origin: bottom right !important;
+			-moz-transform-origin: bottom right !important;
+			-ms-transform-origin: bottom right !important;
+			transform-origin: bottom right !important;
+		}
+	}
 }
 
 .dropdown:not([data-animation]) .dropdown-menu,
@@ -94,41 +135,43 @@
 	display: block;
 	
 }
-.dropdown:not([data-animation]) .dropdown-menu.pull-right,
-.bootstrap-select .dropdown-menu.pull-right,
-.btn-group .dropdown-menu.pull-right,
-.date-picker .dropdown-menu.pull-right,
-.dropdown:not([data-animation]) .dropdown-menu.dropdown-menu-right,
-.bootstrap-select .dropdown-menu.dropdown-menu-right,
-.btn-group .dropdown-menu.dropdown-menu-right,
-.date-picker .dropdown-menu.dropdown-menu-right {
-	-webkit-transform-origin: top right;
-	-moz-transform-origin: top right;
-	-ms-transform-origin: top right;
-	transform-origin: top right;
-}
-.dropdown:not([data-animation]) .dropdown-menu:not(.pull-right):not(.dropdown-menu-right),
-.bootstrap-select .dropdown-menu:not(.pull-right):not(.dropdown-menu-right),
-.btn-group .dropdown-menu:not(.pull-right):not(.dropdown-menu-right),
-.date-picker .dropdown-menu:not(.pull-right):not(.dropdown-menu-right) {
-	-webkit-transform-origin: top left;
-	-moz-transform-origin: top left;
-	-ms-transform-origin: top left;
-	transform-origin: top left;
-}
-.dropup:not([data-animation]) .dropdown-menu.pull-right,
-.dropup:not([data-animation]) .dropdown-menu.dropdown-menu-right {
-	-webkit-transform-origin: bottom right;
-	-moz-transform-origin: bottom right;
-	-ms-transform-origin: bottom right;
-	transform-origin: bottom right;
-}
-.dropup:not([data-animation]) .dropdown-menu:not(.pull-right):not(.dropdown-menu-right) {
-	-webkit-transform-origin: bottom left;
-	-moz-transform-origin: bottom left;
-	-ms-transform-origin: bottom left;
-	transform-origin: bottom left;
-}
+/*
+	.dropdown:not([data-animation]) .dropdown-menu.pull-right,
+	.bootstrap-select .dropdown-menu.pull-right,
+	.btn-group .dropdown-menu.pull-right,
+	.date-picker .dropdown-menu.pull-right,
+	.dropdown:not([data-animation]) .dropdown-menu.dropdown-menu-right,
+	.bootstrap-select .dropdown-menu.dropdown-menu-right,
+	.btn-group .dropdown-menu.dropdown-menu-right,
+	.date-picker .dropdown-menu.dropdown-menu-right {
+		-webkit-transform-origin: top right;
+		-moz-transform-origin: top right;
+		-ms-transform-origin: top right;
+		transform-origin: top right;
+	}
+	.dropdown:not([data-animation]) .dropdown-menu:not(.pull-right):not(.dropdown-menu-right),
+	.bootstrap-select .dropdown-menu:not(.pull-right):not(.dropdown-menu-right),
+	.btn-group .dropdown-menu:not(.pull-right):not(.dropdown-menu-right),
+	.date-picker .dropdown-menu:not(.pull-right):not(.dropdown-menu-right) {
+		-webkit-transform-origin: top left;
+		-moz-transform-origin: top left;
+		-ms-transform-origin: top left;
+		transform-origin: top right;
+	}
+	.dropup:not([data-animation]) .dropdown-menu.pull-right,
+	.dropup:not([data-animation]) .dropdown-menu.dropdown-menu-right {
+		-webkit-transform-origin: bottom right;
+		-moz-transform-origin: bottom right;
+		-ms-transform-origin: bottom right;
+		transform-origin: bottom left;
+	}
+	.dropup:not([data-animation]) .dropdown-menu:not(.pull-right):not(.dropdown-menu-right) {
+		-webkit-transform-origin: bottom left;
+		-moz-transform-origin: bottom left;
+		-ms-transform-origin: bottom left;
+		transform-origin: bottom right;
+	}
+*/
 .dropdown:not([data-animation]).open .dropdown-menu,
 .dropup.open .dropdown-menu,
 .bootstrap-select.open .dropdown-menu,

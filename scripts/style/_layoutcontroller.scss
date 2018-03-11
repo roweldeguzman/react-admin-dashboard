@@ -238,6 +238,9 @@ $rg-skin: (
 
 @each $value in $rg-skin {
     body[rg-skin="#{nth($value, 2)}"]{
+        a.colored, a.colored:hover, a.colored:focus, a.colored:active {
+            color: nth($value, 1) !important;
+        }
         header nav, #search-mobile-container {
             background: nth($value, 1) !important;
             border-bottom: nth($value, 1) !important;
@@ -329,6 +332,15 @@ $rg-skin: (
         .module-head ul.module-action > li > a.active > i, .module-head ul.module-action > li > a:hover > i,
         .module-head ul.module-action > li.dropdown.open > a > i{
             color: nth($value, 1) !important;
+        }
+
+        .notify_confirm_title{
+            border-bottom: solid 1px nth($value, 1);
+        }
+        .notify_confirm_lb:hover,
+        .notify_confirm_rb:hover,
+        .notify_confirm_bb:hover{
+            background-color: nth($value, 1);
         }
     }
 }

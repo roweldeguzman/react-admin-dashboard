@@ -11,6 +11,8 @@ import Ripple from '../../../components/ripple'
 
 import { Row, Col, Alert, NavDropdown, MenuItem, } from 'react-bootstrap'
 
+const notify = require("../../../helper/notify").notify;
+
 import samsungImg from '../../../assets/img/widgets/alpha.jpg'
 class Home extends Component {
 	constructor(props) {
@@ -62,54 +64,33 @@ class Home extends Component {
 			]
 		}
 		this.sparkline = this.props.sparkline;
-		this.setAction = this.setAction.bind(this);
 		this.changeValue = this.changeValue.bind(this);
 	}
-	getAction(ev) {
-		this.setState({
-			bar1: [7, 7, 6, 2, 5, 3, 8, 6, 6, 4, 8, 6, 5, 8, 2, 4, 7]
-		})
-		let aa = new URLSearchParams(
-			Object.entries({
-				name: "Rowel de Guzman",
-				"a": "b",
-				"c": "d"
-			})
-		).toString()
-		console.log(aa)
-		fetch("http://127.0.0.1:8000/howdy/test/?" + aa)
-			.then(res => res.json())
-			.then((result) => {
-				console.log(result)
-			}, (error) => {
-				console.log(error)
-			})
-			.catch((e) => {
-				console.log(e)
-			})
-	}
-	setAction(ev) {
-		fetch("http://127.0.0.1:8000/howdy/post/", {
-			method: "POST",
-			headers: {
-				'X-CSRFToken': 'ItpdY2t6pBWXpN1Rx0V8fYROCgpj3ClYB24Q72Vow6nme6CYLrPhyqzIdpkg3vAc',
-				'X-Requested-With': 'XMLHttpRequest',
-				'Content-Type': 'application/json; charset=UTF-8',
+	componentDidMount(){
+		notify.growl({
+			message: "Welcome back Rowel de Guzman",
+		}, {
+			z_index: 1080,
+			type: "success",
+			allow_dismiss: true,
+			mouse_over: "pause",
+			label: 'Cancel',
+			className: 'btn-xs btn-inverse',
+			placement: {
+				from: "top",
+				align: "right"
 			},
-			body: JSON.stringify({
-				firstParam: 'yourValue',
-				secondParam: 'yourOtherValue',
-			})
-		})
-			.then(res => res.json())
-			.then((result) => {
-				console.log(result)
-			}, (error) => {
-				console.log(error)
-			})
-			.catch((e) => {
-				console.log(e)
-			})
+			delay: 2500,
+			spacing: 10,
+			animate: {
+				enter: 'animated bounceInLeft',
+				exit: 'animated bounceOutLeft'
+			},
+			offset: {
+				x: 20,
+				y: 85
+			}
+		});
 	}
 	changeValue(event) {
 		const name = event.target.name
@@ -271,26 +252,11 @@ class Home extends Component {
 								</Col>
 							</Row>
 						</div>
-
-
-
 						<div className="form-group">
 							<Input className="form-control input-sm" placeholder="Input Small" name="firstName" onChange={this.changeValue} />
 						</div>
 						<div className="form-group">
 							<Input className="form-control input-sm" placeholder="Input Small" name="lastName" onChange={this.changeValue} />
-						</div>
-						<div className="form-group">
-							<Ripple type="button" className="btn btn-primary" onClick={(e) => this.getAction(e)}>
-								<span>GET REQUEST</span>
-							</Ripple>&nbsp;
-
-							<Ripple type="button" className="btn btn-primary" onClick={(e) => this.setAction(e)}>
-								<span>POST REQUEST</span>
-							</Ripple>
-							<Alert onDismiss={this.dismiss}>
-								<strong>Holy guacamole!</strong> Best check yo self, you're not looking too good.
-							</Alert>
 						</div>
 					</div>
 				</div>

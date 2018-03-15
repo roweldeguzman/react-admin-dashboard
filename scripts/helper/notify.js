@@ -255,7 +255,9 @@ var _growl = {
 		$template.querySelector('[data-growl="dismiss"]').style.zIndex = z_index;
 		if (settings.icon) {
 			if (settings.icon_type.toLowerCase() == 'class') {
-				$template.querySelector('[data-growl="icon"]').classList.add(settings.icon)
+				settings.icon.split(" ").forEach(function(e, i){
+					$template.querySelector('[data-growl="icon"]').classList.add(e)
+				})				
 			} else {
 				if ($template.querySelector('[data-growl="icon"]').tagName === 'IMG') {
 					$template.querySelector('[data-growl="icon"]').setAttribute("src", settings.icon)
@@ -276,11 +278,14 @@ var _growl = {
 		}
 
 		if (settings.url) {
-			$template.querySelector('[data-growl="url"]')
-				.setAttribute("href", settings.url)
-				.setAttribute("target", settings.url_target)
-			var style = 'position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: ' + ((settings.z_index - 2) >= 1 ? (settings.z_index - 2) : 1);
-			$template.querySelector('[data-growl="url"]').setAttribute("style", style)
+			var urlContainer = $template.querySelector('[data-growl="url"]');
+			if (urlContainer !== null) {				
+				var styles = 'position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: ' + ((settings.z_index - 2) >= 1 ? (settings.z_index - 2) : 1);
+				urlContainer.setAttribute("style", styles);
+				urlContainer.setAttribute("href", settings.url);
+				urlContainer.setAttribute("target", settings.url_target);
+				
+			}
 		}
 	},
 	placement: function ($template, settings){
@@ -288,23 +293,25 @@ var _growl = {
 			gCSS = 'position: ' + (settings.element === 'body' ? 'fixed' : 'absolute') + ';margin: 0; z-index: ' + settings.z_index + ';display: inline-block;',
 			hasAnimation = false;
 		var dataPos = document.querySelectorAll('[data-growl-position="' + settings.placement.from + '-' + settings.placement.align + '"]')
-		for (var i = 0; i < dataPos.length; i++){
-			offsetAmt = Math.max(offsetAmt, parseInt(dataPos[i].style[settings.placement.from]) + dataPos[i].offsetHeight + settings.spacing)
-		}		
+		dataPos.forEach(function(e, i) {
+			return offsetAmt = Math.max(offsetAmt, parseInt(e.style[settings.placement.from]) + e.offsetHeight + settings.spacing)
+		});
+		
 		gCSS += settings.placement.from + ":" + offsetAmt + "px;";
 		
 		$template.setAttribute("style", gCSS)
 
 		if (settings.onShow) {
-			settings.onShow(event);
+			settings.onShow($template);
 		}
 		
 		document.body.appendChild($template)
 		
 		switch (settings.placement.align) {
 			case 'center':
+				let outer = $template.offsetWidth / 2;
 				$template.style.left = '50%';
-				$template.style.marginLeft = '-' + ($template.offsetWidth / 2) + 'px';
+				$template.style.marginLeft = -outer + 'px';
 				break;
 			case 'left':
 				$template.style.left = settings.offset.x + 'px'; 
@@ -313,41 +320,18 @@ var _growl = {
 				$template.style.right = settings.offset.x + 'px' 
 				break;
 		}
-		$template.classList.add('growl-animated')
-
-		_growl.one($template, "webkitAnimationStart", function(event){
-			hasAnimation = true;
+		$template.classList.add('growl-animated');
+		["webkitAnimationStart", "oanimationstart", "MSAnimationStart", "animationstart"].forEach(function(e, i){
+			_growl.one($template, e, function(){
+				hasAnimation = true;
+			});
 		});
-		_growl.one($template, "oanimationstart", function (event) {
-			hasAnimation = true;
-		});
-		_growl.one($template, "MSAnimationStart", function (event) {
-			hasAnimation = true;
-		});
-		_growl.one($template, "animationstart", function (event) {
-			hasAnimation = true;
-		});
-
-
-		_growl.one($template, "webkitAnimationEnd", function (event) {
-			if (settings.onShown) {
-				settings.onShown(event);
-			}
-		});
-		_growl.one($template, "oanimationend", function (event) {
-			if (settings.onShown) {
-				settings.onShown(event);
-			}
-		});
-		_growl.one($template, "MSAnimationEnd", function (event) {
-			if (settings.onShown) {
-				settings.onShown(event);
-			}
-		});
-		_growl.one($template, "animationend", function (event) {
-			if (settings.onShown) {
-		 		settings.onShown(event);
-			}
+		["webkitAnimationEnd", "oanimationend", "MSAnimationEnd", "animationend"].forEach(function(e, i) {
+			_growl.one($template, e, function (event) {
+				if (settings.onShown) {
+					settings.onShown(event);
+				}
+			});
 		});
 		setTimeout(function () {
 			if (!hasAnimation) {
@@ -374,9 +358,8 @@ var _growl = {
 		
 		if (settings.delay >= 1) {
 			$template.setAttribute("data-delay", settings.delay);
-			
 			var timer = setInterval(function () {
-				var delay = parseInt($template.attributes["data-delay"].value) - settings.timer;
+				var delay = parseInt($template.getAttribute("data-delay")) - settings.timer;
 				if ((!$template.classList.contains('hovering') && settings.mouse_over == 'pause') || settings.mouse_over != 'pause') {
 					$template.setAttribute("data-delay", delay);
 				}
@@ -394,14 +377,62 @@ var _growl = {
 			this.removeEventListener(event, handler);
 		}
 		dom.addEventListener(event, handler);
+	},
+	getNextAll: function(dom){
+		var list = [];
+
+		while(dom.nextSibling !== null){
+			list.push(dom.nextSibling);
+			dom = dom.nextSibling;
+		}
+		
+		return list;
 	}
 }
-var Plugin = function (_config){
+Plugin = function (_config){
 	_growl.init(_config, this);
 }
 Plugin.prototype = {
 	update: function (command, update) {
-
+		switch (command) {
+			case 'icon':
+				var $self = this;
+				if ($self.settings.icon_type.toLowerCase() == 'class') {
+					var target = $self.$template.querySelector('[data-growl="icon"]');
+					if (target !== null){
+						target.className = update;
+					}
+				} else {
+					if (!$self.$template.querySelector('[data-growl="icon"]').tagName == "IMG") {
+						var changeSrc = $self.$template.querySelectorA('[data-growl="icon"]');
+						if (changeSrc !== null) {
+							changeSrc.querySelector("img").setAttribute("src", update);
+						}
+					}
+				}
+				break;
+			case 'url':
+				var dataPos = this.$template.querySelector('[data-growl="url"]');
+				if (dataPos !== null){
+					dataPos.setAttribute("href", update);
+				}
+				break;
+			case 'type':
+				this.$template.classList.remove("alert-" + this.settings.type);
+				this.$template.classList.add("alert-"+update)
+				break;
+			default:
+				var dataPos = this.$template.querySelector('[data-growl="' + command + '"]');
+				if (dataPos !== null) {
+					dataPos.innerHTML = update;
+				}
+		}
+		if (this.settings.placement.align == "center"){
+			let outer = this.$template.offsetWidth / 2;
+			this.$template.style.left = '50%';
+			this.$template.style.marginLeft = -outer + 'px';
+		}
+		return this;
 	},
 	close: function () {
 		var $template = this.$template,
@@ -413,61 +444,41 @@ Plugin.prototype = {
 		}
 		settings.animate.exit.split(" ").forEach(function(e, i){
 			$template.classList.add(e)
-		})
-
-
-		var dataPos = document.querySelectorAll('[data-growl-position="' + settings.placement.from + '-' + settings.placement.align + '"]')
-		for (var i = 0; i < dataPos.length; i++) {
-			dataPos[i].style[settings.placement.from] = posX;
-			posX = parseInt(posX) + settings.spacing + dataPos[i].outerHeight;
-		}	
-		_growl.one($template, "webkitAnimationStart", function (event) {
-			hasAnimation = true;
-		});
-		_growl.one($template, "oanimationstart", function (event) {
-			hasAnimation = true;
-		});
-		_growl.one($template, "MSAnimationStart", function (event) {
-			hasAnimation = true;
-		});
-		_growl.one($template, "animationstart", function (event) {
-			hasAnimation = true;
 		});
 
-
-		_growl.one($template, "webkitAnimationEnd", function (event) {
-			$template.remove();
-			if (settings.onShown) {
-				settings.onShown(event);
-			}
+		["webkitAnimationStart", "oanimationstart", "MSAnimationStart", "animationstart"].forEach(function (e, i) {
+			_growl.one($template, e, function () {
+				hasAnimation = true;
+			});
 		});
-		_growl.one($template, "oanimationend", function (event) {
-			$template.remove();
-			if (settings.onShown) {
-				settings.onShown(event);
-			}
+		["webkitAnimationEnd", "oanimationend", "MSAnimationEnd", "animationend"].forEach(function (e, i) {
+			_growl.one($template, e, function (event) {
+				$template.remove();
+				reAlign()
+				if (settings.onHidden) {
+					settings.onHidden(event);
+				}
+			});
 		});
-		_growl.one($template, "MSAnimationEnd", function (event) {
-			$template.remove();
-			if (settings.onShown) {
-				settings.onShown(event);
-			}
-		});
-		_growl.one($template, "animationend", function (event) {
-			$template.remove();
-			if (settings.onShown) {
-				settings.onShown(event);
-			}
-		});
-
 		setTimeout(function () {
 			if (!hasAnimation) {
 				$template.remove();
+				reAlign()
 				if (settings.onHidden) {
 					settings.onHidden(event);
 				}
 			}
 		}, 100);
+		
+		function reAlign(){
+			var offsetAmt = settings.offset.y;
+			var dataPos = document.querySelectorAll('[data-growl-position="' + settings.placement.from + '-' + settings.placement.align + '"]')
+			
+			dataPos.forEach(function(e, i) {
+				e.style[settings.placement.from] = offsetAmt +"px";
+				offsetAmt = Math.max(offsetAmt, parseInt(e.style[settings.placement.from]) + e.offsetHeight + settings.spacing)
+			});
+		}
 		return this;
 	}
 }
@@ -502,6 +513,11 @@ var _self = {
 		}
 		var _config = {
 			message: content.message,
+			icon: content.icon,
+			title: content.title,
+			url: content.url,
+
+
 			element: 'body',
 			type: "info",
 			allow_dismiss: true,
@@ -528,13 +544,31 @@ var _self = {
 			template: '<button type="button" aria-hidden="true" class="close" data-growl="dismiss">&times;</button><span data-growl="icon"></span><span data-growl="title"></span><span data-growl="message"></span><a href="#" data-growl="url"></a>'
 		}
 		for (var k in _config) {
-			if (config[k]) {
+			if (config[k] !== undefined) {
 				_config[k] = config[k]
 			} else {
 				_config[k] = _config[k]
 			}
 		}
-		new Plugin(_config);		
+		var growler = new Plugin(_config);
+		return growler;	
+	},
+	growlClose: function(selector){
+		if (selector === undefined || selector == "all") {
+			var openGrowl = document.querySelectorAll(".alert-dismissable");
+			if (openGrowl.length > 0) {
+				openGrowl.forEach(function (e, i) {
+					e.querySelector('[data-growl="dismiss"]').click();
+				});
+			}
+		} else if (selector === 'success' || selector === 'info' || selector === 'warning' || selector === 'danger' || selector === 'inverse') {
+			var openGrowl = document.querySelectorAll(".alert-dismissable.alert-" + selector);
+			if (openGrowl.length > 0) {
+				openGrowl.forEach(function (e, i) {
+					e.querySelector('[data-growl="dismiss"]').click();
+				});
+			}
+		}
 	}
 }
 module.exports.notify = _self

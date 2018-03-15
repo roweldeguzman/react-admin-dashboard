@@ -192,9 +192,9 @@ class SideBar extends Component {
 								</a>
 								<Collapse in={this.state["user-interface"]}>
 									<ul className="list-unstyled">
-										<li>
+										{/* <li>
 											<NavLink className="sub" to={`/user-interface/bootstrap`} activeClassName="active">UI Bootstrap</NavLink>
-										</li>
+										</li> */}
 										<li>
 											<NavLink className="sub" to={`/user-interface/color`} activeClassName="active">Colors</NavLink>
 										</li>
@@ -226,7 +226,7 @@ class SideBar extends Component {
 								</Collapse>
 							</li>
 							<li>
-								<NavLink to={`/typography`} strict>
+								<NavLink to={`/charts`} strict>
 									<div className="icon-circle">
 										<i className="zmdi zmdi-trending-up"></i>
 									</div><span>Charts</span>
@@ -250,7 +250,7 @@ class SideBar extends Component {
 								</Collapse>
 							</li>
 							<li>
-								<NavLink to={`/typography`} strict>
+								<NavLink to={`/utilities`} strict>
 									<div className="icon-circle">
 										<i className="zmdi zmdi-layers"></i>
 									</div><span>Utilities</span>
@@ -345,6 +345,20 @@ class SideBar extends Component {
 										</li>
 									</ul>
 								</Collapse>
+							</li>
+							<li>
+								<a href="https://github.com/roweldeguzman/react-admin-dashboard" target="_blank">
+									<div class="icon-circle">
+										<i class="zmdi zmdi-shopping-cart"></i>
+									</div><span>Want it</span>
+								</a>
+							</li>
+							<li>
+								<a href="https://paypal.me/ngxAdminDashboard" target="_blank">
+									<div class="icon-circle">
+										<i class="zmdi zmdi-money"></i>
+									</div><span>Donate</span>
+								</a>
 							</li>
 						</ul>
 						<div className="bottom-collapser">

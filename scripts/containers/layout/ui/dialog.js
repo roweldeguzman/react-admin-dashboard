@@ -13,20 +13,19 @@ export default class UIDialog extends Component {
 	constructor(props) {
 		super(props)
 	}
-	componentDidMount(){
-		// swal("Hello world!");
-		//https://sweetalert.js.org/guides/
-		
-		
-	}
+	componentDidMount(){}
 	makeNotif(ev){
 		let target = ev.target,
 			attr = target.attributes,
 			type = attr["data-type"].value,
 			from = attr["data-from"].value,
 			align = attr["data-align"].value;
-		notify.growl({
-			message: "Bootstrap Growl Turning standard Bootstrap alerts into awesome notifications"
+		
+		var notifier = notify.growl({
+			message: "Bootstrap Growl Turning standard Bootstrap alerts into awesome notifications",
+			url: "https://roweldev.com ",
+			title: "Sample Site ",
+			icon: 'zmdi zmdi-info zmdi-hc-fw'
 		}, {
 			z_index: 1080,
 			type: type,
@@ -43,6 +42,47 @@ export default class UIDialog extends Component {
 			animate: {
 				enter: 'animated bounceIn',
 				exit: 'animated bounceOut'
+			},
+			offset: {
+				x: 20,
+				y: 85
+			},
+			onShown: function(){
+				notifier
+					.update("title", "")
+					.update("message", "This is update")
+					.update("icon", "")
+					.update("url", "");
+				setTimeout(function(){
+					notify.growlClose('success')
+				}, 1200);
+			}
+		});
+		
+	}
+	makeNotifAnim(ev){
+		let target = ev.target,
+			attr = target.attributes,
+			type = attr["data-type"].value,
+			animIn = attr["data-animation-in"].value,
+			animOut = attr["data-animation-out"].value;
+
+		notify.growl({ message: "Bootstrap Growl Turning standard Bootstrap alerts into awesome notifications" }, {
+			z_index: 1080,
+			type: type,
+			allow_dismiss: false,
+			mouse_over: "pause",
+			label: 'Cancel',
+			className: 'btn-xs btn-inverse',
+			placement: {
+				from: 'top',
+				align: 'right'
+			},
+			delay: 2500,
+			spacing: 10,
+			animate: {
+				enter: animIn,
+				exit: animOut
 			},
 			offset: {
 				x: 20,
@@ -159,63 +199,63 @@ export default class UIDialog extends Component {
 								<div className="f-500 m-b-20 c-black">Type</div>
 								<Row className="notifications">
 									<Col xs={6} sm={2}>
-										<Ripple type="button" className="btn btn-primary">Inverse</Ripple>
+										<Ripple type="button" className="btn btn-primary" onClick={(event) => { this.makeNotif(event) }} data-type="inverse" data-from="top" data-align="right">Inverse</Ripple>
 									</Col>
 									<Col xs={6} sm={2}>
-										<Ripple type="button" className="btn btn-info">Info</Ripple>
+										<Ripple type="button" className="btn btn-info" onClick={(event) => { this.makeNotif(event) }} data-type="info" data-from="top" data-align="right">Info</Ripple>
 									</Col>
 									<Col xs={6} sm={2}>
-										<Ripple type="button" className="btn btn-success">Success</Ripple>
+										<Ripple type="button" className="btn btn-success" onClick={(event) => { this.makeNotif(event) }} data-type="success" data-from="top" data-align="right">Success</Ripple>
 									</Col>
 									<Col xs={6} sm={2}>
-										<Ripple type="button" className="btn btn-warning">Warning</Ripple>
+										<Ripple type="button" className="btn btn-warning" onClick={(event) => { this.makeNotif(event) }} data-type="warning" data-from="top" data-align="right">Warning</Ripple>
 									</Col>
 									<Col xs={6} sm={2}>
-										<Ripple type="button" className="btn btn-danger">Danger</Ripple>
+										<Ripple type="button" className="btn btn-danger" onClick={(event) => { this.makeNotif(event) }} data-type="danger" data-from="top" data-align="right">Danger</Ripple>
 									</Col>
 								</Row>
 								<div className="f-500 m-b-20 c-black">Animation</div>
 								<Row className="notifications">
 									<Col xs={6} sm={2}>
-										<Ripple type="button" className="btn btn-primary">Fade In</Ripple>
+										<Ripple type="button" className="btn btn-primary" onClick={(event) => { this.makeNotifAnim(event) }} data-type="inverse" data-animation-in="animated fadeIn" data-animation-out="animated fadeOut">Fade In</Ripple>
 									</Col>
 									<Col xs={6} sm={2}>
-										<Ripple type="button" className="btn btn-primary">Fade In Left</Ripple>
+										<Ripple type="button" className="btn btn-primary" onClick={(event) => { this.makeNotifAnim(event) }} data-type="inverse" data-animation-in="animated fadeInLeft" data-animation-out="animated fadeOutLeft">Fade In Left</Ripple>
 									</Col>
 									<Col xs={6} sm={2}>
-										<Ripple type="button" className="btn btn-primary">Fade In Right</Ripple>
+										<Ripple type="button" className="btn btn-primary" onClick={(event) => { this.makeNotifAnim(event) }} data-type="inverse" data-animation-in="animated fadeInRight" data-animation-out="animated fadeOutRight">Fade In Right</Ripple>
 									</Col>
 									<Col xs={6} sm={2}>
-										<Ripple type="button" className="btn btn-primary">Fade In Up</Ripple>
+										<Ripple type="button" className="btn btn-primary" onClick={(event) => { this.makeNotifAnim(event) }} data-type="inverse" data-animation-in="animated fadeInUp" data-animation-out="animated fadeOutUp">Fade In Up</Ripple>
 									</Col>
 									<Col xs={6} sm={2}>
-										<Ripple type="button" className="btn btn-primary">Fade In Down</Ripple>
+										<Ripple type="button" className="btn btn-primary" onClick={(event) => { this.makeNotifAnim(event) }} data-type="inverse" data-animation-in="animated fadeInDown" data-animation-out="animated fadeOutDown">Fade In Down</Ripple>
 									</Col>
 									<Col xs={6} sm={2}>
-										<Ripple type="button" className="btn btn-primary">Bounce In</Ripple>
-									</Col>
-
-									<Col xs={6} sm={2}>
-										<Ripple type="button" className="btn btn-primary">Bounce In Left</Ripple>
-									</Col>
-									<Col xs={6} sm={2}>
-										<Ripple type="button" className="btn btn-primary">Bounce In Right</Ripple>
-									</Col>
-									<Col xs={6} sm={2}>
-										<Ripple type="button" className="btn btn-primary">Bounce In Up</Ripple>
-									</Col>
-									<Col xs={6} sm={2}>
-										<Ripple type="button" className="btn btn-primary">Fall In Right</Ripple>
-									</Col>
-									<Col xs={6} sm={2}>
-										<Ripple type="button" className="btn btn-primary">Rotate In</Ripple>
-									</Col>
-									<Col xs={6} sm={2}>
-										<Ripple type="button" className="btn btn-primary">Flip In X</Ripple>
+										<Ripple type="button" className="btn btn-primary" onClick={(event) => { this.makeNotifAnim(event) }} data-type="inverse" data-animation-in="animated bounceIn" data-animation-out="animated bounceOut">Bounce In</Ripple>
 									</Col>
 
 									<Col xs={6} sm={2}>
-										<Ripple type="button" className="btn btn-primary">Flip In Y</Ripple>
+										<Ripple type="button" className="btn btn-primary" onClick={(event) => { this.makeNotifAnim(event) }} data-type="inverse" data-animation-in="animated bounceInLeft" data-animation-out="animated bounceOutLeft">Bounce In Left</Ripple>
+									</Col>
+									<Col xs={6} sm={2}>
+										<Ripple type="button" className="btn btn-primary" onClick={(event) => { this.makeNotifAnim(event) }} data-type="inverse" data-animation-in="animated bounceInRight" data-animation-out="animated bounceOutRight">Bounce In Right</Ripple>
+									</Col>
+									<Col xs={6} sm={2}>
+										<Ripple type="button" className="btn btn-primary" onClick={(event) => { this.makeNotifAnim(event) }} data-type="inverse" data-animation-in="animated bounceInUp" data-animation-out="animated bounceOutUp">Bounce In Up</Ripple>
+									</Col>
+									<Col xs={6} sm={2}>
+										<Ripple type="button" className="btn btn-primary" onClick={(event) => { this.makeNotifAnim(event) }} data-type="inverse" data-animation-in="animated rotateInDownRight" data-animation-out="animated rotateOutUpRight">Fall In Right</Ripple>
+									</Col>
+									<Col xs={6} sm={2}>
+										<Ripple type="button" className="btn btn-primary" onClick={(event) => { this.makeNotifAnim(event) }} data-type="inverse" data-animation-in="animated rotateIn" data-animation-out="animated rotateOut">Rotate In</Ripple>
+									</Col>
+									<Col xs={6} sm={2}>
+										<Ripple type="button" className="btn btn-primary" onClick={(event) => { this.makeNotifAnim(event) }} data-type="inverse" data-animation-in="animated flipInX" data-animation-out="animated flipOutX">Flip In X</Ripple>
+									</Col>
+
+									<Col xs={6} sm={2}>
+										<Ripple type="button" className="btn btn-primary" onClick={(event) => { this.makeNotifAnim(event) }} data-type="inverse" data-animation-in="animated flipInY" data-animation-out="animated flipOutY">Flip In Y</Ripple>
 									</Col>
 								</Row>
 							</div>

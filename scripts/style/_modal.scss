@@ -10,14 +10,20 @@
             transition: opacity 0.4s ease-out, bottom 0.4s ease-out !important;
 }
 .modal.fade:not(.in) .modal-dialog.md {
-    will-change: transform;
 	-webkit-transform: translate3d(0, 125%, 0);
-	        transform: translate3d(0, 125%, 0);
+    -moz-transform: translate3d(0, 125%, 0);
+    -ms-transform: translate3d(0, 125%, 0);
+	transform: translate3d(0, 125%, 0);
+    will-change: transform;
+    transition-delay: 0.5s;
 }
 .modal.fade:not(.in) .modal-dialog.ios {
-    will-change: transform;
 	-webkit-transform: translate3d(125%, 0, 0);
+    -moz-transform: translate3d(125%, 0, 0);
+    -ms-transform: translate3d(125%, 0, 0);
 	transform: translate3d(125%, 0, 0);
+    will-change: transform;
+    transition-delay: 0.5s;
 }
 .modal.custom {
     .modal-dialog{

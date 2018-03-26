@@ -348,15 +348,15 @@ class SideBar extends Component {
 							</li>
 							<li>
 								<a href="https://github.com/roweldeguzman/react-admin-dashboard" target="_blank">
-									<div class="icon-circle">
-										<i class="zmdi zmdi-shopping-cart"></i>
+									<div className="icon-circle">
+										<i className="zmdi zmdi-shopping-cart"></i>
 									</div><span>Want it</span>
 								</a>
 							</li>
 							<li>
 								<a href="https://paypal.me/ngxAdminDashboard" target="_blank">
-									<div class="icon-circle">
-										<i class="zmdi zmdi-money"></i>
+									<div className="icon-circle">
+										<i className="zmdi zmdi-money"></i>
 									</div><span>Donate</span>
 								</a>
 							</li>

@@ -82,6 +82,14 @@
 			text-align: center;
 			margin-right: 10px;
 		}
+		&[class*="bgm-"] {
+			& .disabled a{
+				opacity: 0.8;
+			}
+			& a{
+				color: white;
+			}
+		}
 	}
 	.no-annimate{
 		-webkit-transition: none !important;

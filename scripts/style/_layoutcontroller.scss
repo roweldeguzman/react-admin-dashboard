@@ -209,6 +209,25 @@ body[rg-skin="primary"]{
         background-color: $primary !important;
         border-color: $primary !important;
     }
+    .btn-toolbar {
+        .btn-default:hover,
+        .btn-default.active{
+            background: $primary !important;
+            color: white;
+        }
+        .btn-default:hover{
+            opacity: 0.8;
+        }
+        .btn-default.active{
+            opacity: 1;
+        }
+    }
+    .pagination > .active > span, 
+    .pagination > .active > span:focus, 
+    .pagination > .active > span:hover {
+        background-color: $primary !important;
+        border-color: $primary !important;
+    }
     .tab-nav:not(.tn-vertical):not([data-tab-color]) > li > a::before,
     .profile .right-pane .extra-nav ul li a::after{
         background: $primary;
@@ -279,6 +298,24 @@ $rg-skin: (
             background-color: nth($value, 1) !important;
             border-color: nth($value, 1) !important;
         }
+        .btn-toolbar .btn-default:hover,
+        .btn-toolbar .btn-default.active{
+            background: nth($value, 1) !important;
+            color: white
+        }
+        .btn-toolbar {
+            .btn-default:hover,
+            .btn-default.active{
+                background: nth($value, 1) !important;
+                color: white;
+            }
+            .btn-default:hover{                
+                opacity: 0.8;
+            }
+            .btn-default.active{
+                opacity: 1;
+            }
+        }
         .tab-nav:not(.tn-vertical):not([data-tab-color]) > li > a::before,
         .profile .right-pane .extra-nav ul li a::after{
             background: nth($value, 1);
@@ -298,9 +335,9 @@ $rg-skin: (
         .radio .input-helper::after {
             background: nth($value, 1);
         }
-        .pagination > .active > a, 
-        .pagination > .active > a:focus, 
-        .pagination > .active > a:hover {
+        .pagination > .active > span, 
+        .pagination > .active > span:focus, 
+        .pagination > .active > span:hover {
             background-color: nth($value, 1) !important;
             border-color: nth($value, 1) !important;
         }
@@ -341,6 +378,10 @@ $rg-skin: (
         .notify_confirm_rb:hover,
         .notify_confirm_bb:hover{
             background-color: nth($value, 1);
+        }
+        /* carousel */
+        .carousel .carousel-indicators li.active {
+            background: nth($value, 1) !important;
         }
     }
 }

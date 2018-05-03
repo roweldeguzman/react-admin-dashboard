@@ -192,9 +192,9 @@ class SideBar extends Component {
 								</a>
 								<Collapse in={this.state["user-interface"]}>
 									<ul className="list-unstyled">
-										{/* <li>
+										<li>
 											<NavLink className="sub" to={`/user-interface/bootstrap`} activeClassName="active">UI Bootstrap</NavLink>
-										</li> */}
+										</li>
 										<li>
 											<NavLink className="sub" to={`/user-interface/color`} activeClassName="active">Colors</NavLink>
 										</li>
@@ -221,6 +221,9 @@ class SideBar extends Component {
 										</li>
 										<li>
 											<NavLink className="sub" to={`/user-interface/modal`} activeClassName="active">Modal</NavLink>
+										</li>
+										<li>
+											<NavLink className="sub" to={`/user-interface/pagination`} activeClassName="active">Pagination</NavLink>
 										</li>
 									</ul>
 								</Collapse>

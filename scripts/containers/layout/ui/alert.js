@@ -22,7 +22,8 @@ export default class UIAlert extends Component {
 				message: `Oh snap! Change a few things up and try submitting again.`
 			}
 		]
-		this.onDismis = this.onDismis.bind(this)
+		this.onDismis = this.onDismis.bind(this);
+		this.reset = this.reset.bind(this);
 		this.state = {
 			alerts: this.alerts
 		}
@@ -41,6 +42,9 @@ export default class UIAlert extends Component {
 	reset() {
 		this.setState({
 			alerts: this.alerts.map((alert) => Object.assign({}, alert))
+		});
+		this.alerts.map((alert)=>{
+			//console.log(alert)
 		})
 		
 	}

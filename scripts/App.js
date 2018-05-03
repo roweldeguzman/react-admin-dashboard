@@ -167,6 +167,10 @@ class Applayout extends Component {
 									loader: () => import('./containers/layout/ui/modal'),
 									loading: Loading
 								})} />
+								<Route path="/user-interface/pagination" component={Loadable({
+									loader: () => import('./containers/layout/ui/pagination'),
+									loading: Loading
+								})} />
 								{/* Charts */}
 								<Route path="/charts" component={Loadable({
 									loader: () => import('./containers/layout/charts/chart'),

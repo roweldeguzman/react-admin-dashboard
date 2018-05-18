@@ -229,7 +229,8 @@ body[rg-skin="primary"]{
         border-color: $primary !important;
     }
     .tab-nav:not(.tn-vertical):not([data-tab-color]) > li > a::before,
-    .profile .right-pane .extra-nav ul li a::after{
+    .profile .right-pane .extra-nav ul li a::after,
+    .custom-tab > .nav-tabs > li > a::before{
         background: $primary;
     }
     .search-div .main-search-menu-result > li.active, 
@@ -317,7 +318,8 @@ $rg-skin: (
             }
         }
         .tab-nav:not(.tn-vertical):not([data-tab-color]) > li > a::before,
-        .profile .right-pane .extra-nav ul li a::after{
+        .profile .right-pane .extra-nav ul li a::after,
+        .custom-tab > .nav-tabs > li > a::before{
             background: nth($value, 1);
         }
         .search-div .main-search-menu-result > li.active, 

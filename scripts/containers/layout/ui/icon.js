@@ -142,17 +142,17 @@ export default class UIIcon extends Component {
 
 		return (
 			<Fragment>
-				<ModuleHeader text="Icons">
-					<small>
-						<a target="_blank" href="http://zavoloklom.github.io/material-design-iconic-font/icons.html">http://zavoloklom.github.io/material-design-iconic-font/icons.html</a>
-					</small>
-				</ModuleHeader>
+				<ModuleHeader text="Icons"/>
 				<Row>
 					<Col sm={12}>
 						<div className="card icons-demo">
 							<div className="card">
 								<div className="card-header">
-									<h2>Web Application</h2>
+									<h2>Web Application
+										<small>
+											<a className="c-gray" target="_blank" href="http://zavoloklom.github.io/material-design-iconic-font/icons.html">material-design-iconic-font</a>
+										</small>
+									</h2>
 								</div>
 								<div className="card-body card-padding">
 									<Row>

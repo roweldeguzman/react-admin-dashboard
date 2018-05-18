@@ -6,7 +6,7 @@ import { Input, Textarea } from '../../../components/input'
 const config = require("../../../helper/config").config;
 const helper = require("../../../helper/helper").helper;
 
-import { Row, Col, NavDropdown, MenuItem, ProgressBar} from 'react-bootstrap'
+import { Row, Col, NavDropdown, MenuItem, ProgressBar, Tabs, Tab} from 'react-bootstrap'
 
 export default class Widget extends Component {
 	constructor(props) {
@@ -43,11 +43,6 @@ export default class Widget extends Component {
 		this.addTodo = this.addTodo.bind(this)
 	}
 
-	setActiveTab(tab) {
-		this.setState({
-			active_tab: tab
-		})
-	}
 	updateState(event){
 		const name = event.target.name
 		this.setState({
@@ -234,54 +229,33 @@ export default class Widget extends Component {
 									<small>In hendrerit lorem nislac lacinia</small>
 								</h2>
 							</div>
-							<div className="clearfix">
-								<ul className="tab-nav tn-justified" id="license-tab-parent">
-									<Ripple className={`${this.state.active_tab == 1 ? "active active-tab" : ""} waves-effect`} type="li">
-										<a style={{ color: "#2BA3D4" }} onClick={() => { this.setActiveTab(1) }} >Home</a>
-									</Ripple>
-									<Ripple className={`${this.state.active_tab == 2 ? "active active-tab" : ""} waves-effect`} type="li">
-										<a style={{ color: "#2BA3D4" }} onClick={() => { this.setActiveTab(2) }} >Profile</a>
-									</Ripple>
-									<Ripple className={`${this.state.active_tab == 3 ? "active active-tab" : ""} waves-effect`} type="li">
-										<a style={{ color: "#2BA3D4" }} onClick={() => { this.setActiveTab(3) }} >Message</a>
-									</Ripple>
-								</ul>
-								<div style={{ position: "relative"}}>
-									<div className="tab-content p-t-10">
-										<div className={`${this.state.active_tab == 1 ? "active" : ""} tab-pane`}>
-											<div className="p-l-25 p-r-25">
-												In hac habitasse platea dictumst. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos.
-												Nam eget dui. In ac felis quis tortor malesuada pretium. Phasellus consectetuer vestibulum elit. Duis lobortis massa imperdiet
-												quam. Pellentesque commodo eros a enim. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia
-												Curae; In ac dui quis mi consectetuer lacinia. Phasellus a est. Pellentesque commodo eros a enim. Cras ultricies mi eu turpis
-												hendrerit fringilla. Donec mollis hendrerit risus. Vestibulum turpis sem, aliquet eget, lobortis pellentesque, rutrum eu,
-												nisl. Praesent egestas neque eu enim. In hac habitasse platea dictumst.
-											</div>
-										</div>
-										<div className={`${this.state.active_tab == 2 ? "active" : ""} tab-pane`}>
-											<div className="p-l-25 p-r-25">
-												Duis arcu tortor, suscipit eget, imperdiet nec, imperdiet iaculis, ipsum. Vestibulum purus quam, scelerisque ut, mollis sed,
-												nonummy id, metus. Nulla sit amet est. Praesent ac massa at ligula laoreet iaculis. Vivamus aliquet elit ac nisl.
-												Nulla porta dolor. Cras dapibus. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus.
-											</div>
-										</div>
-										<div className={`${this.state.active_tab == 3 ? "active" : ""} tab-pane`}>
-											<div className="p-l-25 p-r-25">
-												Etiam rhoncus. Phasellus leo dolor, tempus non, auctor et, hendrerit quis, nisi. Cras id dui. Curabitur turpis. Etiam ut
-												purus mattis mauris sodales aliquam. Aenean viverra rhoncus pede. Nulla sit amet est. Donec mi odio, faucibus at,
-												scelerisque quis, convallis in, nisi. Praesent ac sem eget est egestas volutpat. Cras varius. Morbi mollis tellus
-												ac sapien. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nam ipsum risus, rutrum vitae, vestibulum
-												eu, molestie vel, lacus. Fusce vel dui.Morbi mattis ullamcorper velit. Etiam rhoncus. Phasellus leo dolor, tempus
-												non, auctor et, hendrerit quis, nisi. Cras id dui. Curabitur turpis. Etiam ut purus mattis mauris sodales aliquam.
-												Aenean viverra rhoncus pede. Nulla sit amet est. Donec mi odio, faucibus at, scelerisque quis, convallis in, nisi.
-												Praesent ac sem eget est egestas volutpat. Cras varius. Morbi mollis tellus ac sapien. In enim justo, rhoncus ut,
-												imperdiet a, venenatis vitae, justo. Nam ipsum risus, rutrum vitae, vestibulum eu, molestie vel, lacus. Fusce vel
-												dui.
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
+							<Tabs defaultActiveKey={1} id="uncontrolled-tab-example" className="custom-tab full-width" animation={false} >
+								<Tab eventKey={1} title="Home" className="p-l-25 p-r-25">
+									In hac habitasse platea dictumst. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos.
+									Nam eget dui. In ac felis quis tortor malesuada pretium. Phasellus consectetuer vestibulum elit. Duis lobortis massa imperdiet
+									quam. Pellentesque commodo eros a enim. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia
+									Curae; In ac dui quis mi consectetuer lacinia. Phasellus a est. Pellentesque commodo eros a enim. Cras ultricies mi eu turpis
+									hendrerit fringilla. Donec mollis hendrerit risus. Vestibulum turpis sem, aliquet eget, lobortis pellentesque, rutrum eu,
+									nisl. Praesent egestas neque eu enim. In hac habitasse platea dictumst.
+  								</Tab>
+								<Tab eventKey={2} title="Profile" className="p-l-25 p-r-25">
+									Duis arcu tortor, suscipit eget, imperdiet nec, imperdiet iaculis, ipsum. Vestibulum purus quam, scelerisque ut, mollis sed,
+									nonummy id, metus. Nulla sit amet est. Praesent ac massa at ligula laoreet iaculis. Vivamus aliquet elit ac nisl.
+									Nulla porta dolor. Cras dapibus. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus.
+  								</Tab>
+								<Tab eventKey={3} title="Message" className="p-l-25 p-r-25">
+									Etiam rhoncus. Phasellus leo dolor, tempus non, auctor et, hendrerit quis, nisi. Cras id dui. Curabitur turpis. Etiam ut
+									purus mattis mauris sodales aliquam. Aenean viverra rhoncus pede. Nulla sit amet est. Donec mi odio, faucibus at,
+									scelerisque quis, convallis in, nisi. Praesent ac sem eget est egestas volutpat. Cras varius. Morbi mollis tellus
+									ac sapien. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nam ipsum risus, rutrum vitae, vestibulum
+									eu, molestie vel, lacus. Fusce vel dui.Morbi mattis ullamcorper velit. Etiam rhoncus. Phasellus leo dolor, tempus
+									non, auctor et, hendrerit quis, nisi. Cras id dui. Curabitur turpis. Etiam ut purus mattis mauris sodales aliquam.
+									Aenean viverra rhoncus pede. Nulla sit amet est. Donec mi odio, faucibus at, scelerisque quis, convallis in, nisi.
+									Praesent ac sem eget est egestas volutpat. Cras varius. Morbi mollis tellus ac sapien. In enim justo, rhoncus ut,
+									imperdiet a, venenatis vitae, justo. Nam ipsum risus, rutrum vitae, vestibulum eu, molestie vel, lacus. Fusce vel
+									dui.
+  								</Tab>								
+							</Tabs>
 						</div>
 
 						<div id="todo-lists">

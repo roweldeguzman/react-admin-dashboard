@@ -222,9 +222,6 @@ class SideBar extends Component {
 										<li>
 											<NavLink className="sub" to={`/user-interface/modal`} activeClassName="active">Modal</NavLink>
 										</li>
-										<li>
-											<NavLink className="sub" to={`/user-interface/pagination`} activeClassName="active">Pagination</NavLink>
-										</li>
 									</ul>
 								</Collapse>
 							</li>

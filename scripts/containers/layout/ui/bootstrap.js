@@ -5,7 +5,7 @@ import ModuleHeader from '../../../common/module-header';
 import { 
 	Row, Col, ButtonToolbar, ToggleButtonGroup, ToggleButton, 
 	OverlayTrigger, Carousel, Collapse, Well, Clearfix, MenuItem, 
-	Pagination, Pager, Popover, ProgressBar } from 'react-bootstrap';
+	Pagination, Pager, Popover, ProgressBar, Tabs, Tab, Tooltip } from 'react-bootstrap';
 import Ripple from '../../../components/ripple';
 const config = require("../../../helper/config").config;
 
@@ -105,11 +105,11 @@ export default class UIBootstrap extends Component {
 				<Pagination.Last onClick={this.setPageLast.bind(this)} disabled={this.state.pageActive == 10} />
 			</Fragment>
 		);
-
 		return (
 			<Fragment>
 				<ModuleHeader text="UI Bootstrap"/>
 				<Row>
+					{ /* Buttons Checkbox */}
 					<Col sm={12}>
 						<div className="card">
 							<div className="card-header">
@@ -153,6 +153,7 @@ export default class UIBootstrap extends Component {
 							</div>
 						</div>
 					</Col>
+					{ /* Carousel */}
 					<Col sm={12}>
 						<div className="card">
 							<div className="card-header">
@@ -189,6 +190,7 @@ export default class UIBootstrap extends Component {
 							</div>
 						</div>
 					</Col>
+					{ /* Collapse */}
 					<Col sm={12}>
 						<div className="card">
 							<div className="card-header">
@@ -213,7 +215,7 @@ export default class UIBootstrap extends Component {
 							</div>
 						</div>
 					</Col>
-
+					{ /* Dropdown / Menu items */}
 					<Col sm={12}>
 						<div className="card">
 							<div className="card-header">
@@ -319,7 +321,7 @@ export default class UIBootstrap extends Component {
 							</div>
 						</div>
 					</Col>
-
+					{ /* Pagination */ }
 					<Col sm={12}>
 						<div className="card">
 							<div className="card-header">
@@ -341,6 +343,7 @@ export default class UIBootstrap extends Component {
 
 								<Pagination bsSize="small">{items}</Pagination>
 								<br/>
+								<p> <b>Cutom</b> - Add <code>.custom</code> to <code>Pagination</code> bootstrap component </p>
 								<Pagination bsSize="small" className="custom">{items}</Pagination>
 								<p>
 									<b>Pager</b> - quick previous and next links for simple pagination implementations with light markup and styles. It's great for simple sites like blogs or magazines.
@@ -352,6 +355,7 @@ export default class UIBootstrap extends Component {
 							</div>
 						</div>
 					</Col>
+					{/* Popover */}
 					<Col sm={12}>
 						<div className="card">
 							<div className="card-header">
@@ -430,6 +434,7 @@ export default class UIBootstrap extends Component {
 							</div>
 						</div>
 					</Col>
+					{/* Progressbar */}
 					<Col sm={12}>
 						<div className="card">
 							<div className="card-header">
@@ -470,7 +475,62 @@ export default class UIBootstrap extends Component {
 								<Ripple type="button" className="btn btn-primary" onClick={this.randomStack.bind(this)} >Random</Ripple>
 							</div>
 						</div>
-					</Col>	
+					</Col>
+					<Col sm={12}>
+						<div className="card">
+							<div className="card-header">
+								<h2>Tabs
+									<small>
+										<a className="c-gray" target="_blank" href="https://react-bootstrap.github.io/components/tabs/#tabs-controlled">Togglable tabs</a>
+									</small>
+								</h2>
+							</div>
+							<div className="card-body card-padding">
+								<p className="c-black">Allow the component to control its own state.</p>
+								<p className="c-black">Default tab</p>
+								<Tabs defaultActiveKey={2} id="uncontrolled-tab-example">
+									<Tab eventKey={1} title="Tab 1">
+										Tab 1 content
+  									</Tab>
+									<Tab eventKey={2} title="Tab 2">
+										Tab 2 content
+  									</Tab>
+									<Tab eventKey={3} title="Tab 3" disabled>
+										Tab 3 content
+  									</Tab>
+								</Tabs>
+								<br/>
+								<p className="c-black">Custom tab</p>
+								<small>Add <code>.custom-tab</code> to <code>Tabs</code> bootstrap component </small>
+								<br/><br/>
+								<Tabs defaultActiveKey={2} id="uncontrolled-tab-example" className="custom-tab" animation={false} >
+									<Tab eventKey={1} title="Home">
+										Tab 1 content
+  									</Tab>
+									<Tab eventKey={2} title="Profile">
+										Tab 2 content
+  									</Tab>
+									<Tab eventKey={3} title="Message" disabled>
+										Tab 3 content
+  									</Tab>
+								</Tabs>
+								<p className="c-black">Custom tab with full width</p>
+								<small>Add <code>.custom-tab</code> & <code>.full-width</code> to <code>Tabs</code> bootstrap component </small>
+								<br /><br />
+								<Tabs defaultActiveKey={2} id="uncontrolled-tab-example" className="custom-tab full-width" animation={false} >
+									<Tab eventKey={1} title="Home">
+										Tab 1 content
+  									</Tab>
+									<Tab eventKey={2} title="Profile">
+										Tab 2 content
+  									</Tab>
+									<Tab eventKey={4} title="Message" disabled>
+										Tab 3 content
+  									</Tab>
+								</Tabs>
+							</div>
+						</div>
+					</Col>
 					<Col sm={12}>
 						<div className="card">
 							<div className="card-header">

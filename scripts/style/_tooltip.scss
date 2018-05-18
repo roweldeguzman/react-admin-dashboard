@@ -1,25 +1,25 @@
 .tooltip{
 	-webkit-animation-name: zoomIn;
-    animation-name: zoomIn;
-    -webkit-animation-duration: 200ms;
-    animation-duration: 200ms;
-    -webkit-animation-fill-mode: both;
-    animation-fill-mode: both;
+	animation-name: zoomIn;
+	-webkit-animation-duration: 200ms;
+	animation-duration: 200ms;
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
 	transform-origin: center;
 	&.top .tooltip-arrow{
-    	border-top-color: $primary !important;
+		border-top-color: $primary !important;
 	}
 	&.right .tooltip-arrow{
-    	border-right-color: $primary !important;
+		border-right-color: $primary !important;
 	}
 	&.left .tooltip-arrow{
-    	border-left-color: $primary !important;
+		border-left-color: $primary !important;
 	}
 	&.bottom .tooltip-arrow{
-    	border-bottom-color: $primary !important;
+		border-bottom-color: $primary !important;
 	}
-    &.primary .tooltip-inner{
-        background-color: $primary !important;
+	&.primary .tooltip-inner{
+		background-color: $primary !important;
 	}
 	
 	&.tooltip-black{
@@ -63,51 +63,51 @@
 		&.left .tooltip-arrow{ border-right-color: $purple !important; }
 		&.bottom .tooltip-arrow{ border-right-color: $purple !important; }
 		& .tooltip-inner{ background-color: $purple !important; }
-    }
-    &.tooltip-deeppurple{
+		}
+		&.tooltip-deeppurple{
 		&.top .tooltip-arrow{ border-top-color: $deeppurple !important; }
 		&.right .tooltip-arrow{ border-right-color: $deeppurple !important; }
 		&.left .tooltip-arrow{ border-right-color: $deeppurple !important; }
 		&.bottom .tooltip-arrow{ border-right-color: $deeppurple !important; }
 		& .tooltip-inner{ background-color: $deeppurple !important; }
-    }
-    &.tooltip-lightblue{
+		}
+		&.tooltip-lightblue{
 		&.top .tooltip-arrow{ border-top-color: $lightblue !important; }
 		&.right .tooltip-arrow{ border-right-color: $lightblue !important; }
 		&.left .tooltip-arrow{ border-right-color: $lightblue !important; }
 		&.bottom .tooltip-arrow{ border-right-color: $lightblue !important; }
 		& .tooltip-inner{ background-color: $lightblue !important; }
-    }
-    &.tooltip-cyan{
+		}
+		&.tooltip-cyan{
 		&.top .tooltip-arrow{ border-top-color: $cyan !important; }
 		&.right .tooltip-arrow{ border-right-color: $cyan !important; }
 		&.left .tooltip-arrow{ border-right-color: $cyan !important; }
 		&.bottom .tooltip-arrow{ border-right-color: $cyan !important; }
 		& .tooltip-inner{ background-color: $cyan !important; }
-    }
-    &.tooltip-teal{
+		}
+		&.tooltip-teal{
 		&.top .tooltip-arrow{ border-top-color: $teal !important; }
 		&.right .tooltip-arrow{ border-right-color: $teal !important; }
 		&.left .tooltip-arrow{ border-right-color: $teal !important; }
 		&.bottom .tooltip-arrow{ border-right-color: $teal !important; }
 		& .tooltip-inner{ background-color: $teal !important; }
-        
-    }
-    &.tooltip-green{
+				
+		}
+		&.tooltip-green{
 		&.top .tooltip-arrow{ border-top-color: $green !important; }
 		&.right .tooltip-arrow{ border-right-color: $green !important; }
 		&.left .tooltip-arrow{ border-right-color: $green !important; }
 		&.bottom .tooltip-arrow{ border-right-color: $green !important; }
 		& .tooltip-inner{ background-color: $green !important; }
-    }
-    &.tooltip-orange{
+		}
+		&.tooltip-orange{
 		&.top .tooltip-arrow{ border-top-color: $orange !important; }
 		&.right .tooltip-arrow{ border-right-color: $orange !important; }
 		&.left .tooltip-arrow{ border-right-color: $orange !important; }
 		&.bottom .tooltip-arrow{ border-right-color: $orange !important; }
 		& .tooltip-inner{ background-color: $orange !important; }
-    }
-    &.tooltip-lightgreen{
+		}
+		&.tooltip-lightgreen{
 		&.top .tooltip-arrow{ border-top-color: $lightgreen !important; }
 		&.right .tooltip-arrow{ border-right-color: $lightgreen !important; }
 		&.left .tooltip-arrow{ border-right-color: $lightgreen !important; }
@@ -149,13 +149,13 @@
 		&.left .tooltip-arrow{ border-right-color: $indigo !important; }
 		&.bottom .tooltip-arrow{ border-right-color: $indigo !important; }
 		& .tooltip-inner{ background-color: $indigo !important; }
-    }
-    &.tooltip-bluegray{
+		}
+		&.tooltip-bluegray{
 		&.top .tooltip-arrow{ border-top-color: $bluegray !important; }
 		&.right .tooltip-arrow{ border-right-color: $bluegray !important; }
 		&.left .tooltip-arrow{ border-right-color: $bluegray !important; }
 		&.bottom .tooltip-arrow{ border-right-color: $bluegray !important; }
 		& .tooltip-inner{ background-color: $bluegray !important; }
-    }
-    
+		}
+		
 }

@@ -28,7 +28,7 @@ class SideBar extends Component {
 			forms: extract_path[1] == "forms" ? true : false,
 			"user-interface": extract_path[1] == "user-interface" ? true : false,
 			gallery: extract_path[1] == "gallery" ? true : false,
-			pages: extract_path[1] == "pages" ? true : false,
+			"sample-pages": extract_path[1] == "sample-pages" ? true : false,
 			level_1: false,
 			level_2: false,
 			level_3: false,
@@ -222,6 +222,9 @@ class SideBar extends Component {
 										<li>
 											<NavLink className="sub" to={`/user-interface/modal`} activeClassName="active">Modal</NavLink>
 										</li>
+										<li>
+											<NavLink className="sub" to={`/user-interface/modal`} activeClassName="active">Custom Component</NavLink>
+										</li>
 									</ul>
 								</Collapse>
 							</li>
@@ -256,19 +259,19 @@ class SideBar extends Component {
 									</div><span>Utilities</span>
 								</NavLink>
 							</li>
-							<li className="sub-menu">
-								<a onClick={(e) => { this.toggleSubmenu(e) }} name="pages">
+							<li className={`${this.state["sample-pages"] ? "toggled" : ""} sub-menu`}>
+								<a className={`${this.state["sample-pages"] && this.state.location == "sample-pages" ? "active" : ""} `} onClick={(e) => { this.toggleSubmenu(e) }} name="sample-pages">
 									<div className="icon-circle">
 										<i className="zmdi zmdi-collection-bookmark"></i>
 									</div><span>Pages</span>
 								</a>
-								<Collapse in={this.state.pages}>
+								<Collapse in={this.state["sample-pages"]}>
 									<ul className="list-unstyled">
 										<li>
-											<a className="sub">Profile</a>
+											<NavLink className="sub" to={`/sample-pages/profile`} activeClassName="active">Profile</NavLink>
 										</li>
 										<li>
-											<a className="sub">List View</a>
+											<NavLink className="sub" to={`/sample-pages/list-view`} activeClassName="active">List View</NavLink>
 										</li>
 										<li className="hidden">
 											<a className="sub">Messages</a>

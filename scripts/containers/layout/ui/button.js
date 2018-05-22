@@ -12,6 +12,8 @@ export default class UIButton extends Component {
 	}
 
 	render() {
+		const defBtn = '<button className="btn btn-default">Default</button>';
+		const cusBtn = '<Ripple type="button" className="btn btn-default" >Default</Ripple>';
 		return (
 			<Fragment>
 				<ModuleHeader text="Button"/>
@@ -28,6 +30,12 @@ export default class UIButton extends Component {
 							</div>
 
 							<div className="card-body card-padding">
+								<p className="c-black m-b-20">Normal Button</p>
+								<code> {defBtn} </code><br/>
+								<button className='btn btn-default'>Default</button><br />
+								<p className="c-black m-b-20">Button with ripple effect</p>
+								<code> {cusBtn} </code><br />
+								<Ripple type="button" className="btn btn-default" >Default</Ripple><br />
 								<p className="c-black m-b-20">Bootstrap Color Schemes</p>
 								<Ripple type="button" className="btn btn-default" >Default</Ripple>&nbsp;
 								<Ripple type="button" className="btn btn-info" >Info</Ripple>&nbsp;

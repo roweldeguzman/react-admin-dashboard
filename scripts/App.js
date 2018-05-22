@@ -190,6 +190,15 @@ class Applayout extends Component {
 									loader: () => import('./containers/about'),
 									loading: Loading,
 								})}/>
+								{/* Sample Pages */}
+								<Route path="/sample-pages/profile" component={Loadable({
+									loader: () => import('./containers/layout/pages/profile'),
+									loading: Loading,
+								})} />
+								<Route path="/sample-pages/list-view" component={Loadable({
+									loader: () => import('./containers/layout/pages/list-view'),
+									loading: Loading,
+								})} />
 								<Route path="*" component={PageNotFound} />
 
 							</Switch>

@@ -6,6 +6,9 @@ import {
 	Row, Col, ButtonToolbar, ToggleButtonGroup, ToggleButton, 
 	OverlayTrigger, Carousel, Collapse, Well, Clearfix, MenuItem, 
 	Pagination, Pager, Popover, ProgressBar, Tabs, Tab, Tooltip } from 'react-bootstrap';
+
+import Paginate from '../../../components/paginate';
+
 import Ripple from '../../../components/ripple';
 const config = require("../../../helper/config").config;
 
@@ -15,7 +18,6 @@ export default class UIBootstrap extends Component {
 
 		this.selectCheckbox = this.selectCheckbox.bind(this);
 		this.selectRadio = this.selectRadio.bind(this);		
-		this.setPage = this.setPage.bind(this);
 
 		this.state = {
 			checkbox: ["left", "right"],
@@ -24,7 +26,10 @@ export default class UIBootstrap extends Component {
 			pageActive: 1,
 			noOfPage: 10,
 			dynamic: 22,
-			stack: 100 / 3
+			stack: 100 / 3,
+
+			total: 10,
+			currentPage: 1
 		};
 	}
 
@@ -37,26 +42,18 @@ export default class UIBootstrap extends Component {
 	onSelectAlert(eventKey) {
 		alert(`Alert from menu item.\neventKey: ${eventKey}`);
 	}
-	
-	setPageFirst(){
-		this.setState({pageActive: 1});
-	}
+
 	setPageNext(){
-		if (this.state.pageActive != 10){
-			this.setState({pageActive: this.state.pageActive + 1 });
+		if (this.state.currentPage != 10){
+			this.setState({ currentPage: this.state.currentPage + 1 });
 		}
 	}
 	setPagePrev(){
-		if (this.state.pageActive != 1){
-			this.setState({pageActive: this.state.pageActive - 1});
+		if (this.state.currentPage != 1){
+			this.setState({ currentPage: this.state.currentPage - 1});
 		}
 	}
-	setPageLast() {
-		this.setState({pageActive: 10})
-	}
-	setPage(page){
-		this.setState({ pageActive: page })
-	}
+
 	random() {
 		this.setState({
 			dynamic: Math.floor(Math.random() * 100 + 1)
@@ -67,47 +64,18 @@ export default class UIBootstrap extends Component {
 			stack: Math.floor(Math.random() * (100 / 3) + 1)
 		})
 	}
+	nextPage(page){
+		this.setState({
+			currentPage: page
+		})
+	}
 	render() {
-		let items = [];
-		var pageHtml = '';
-		var pmin = 0;
-		var pmax = 0;
-		var adjacents = 2;
-		items.push(
-			<Fragment key="left">
-				<Pagination.First onClick={this.setPageFirst.bind(this)} disabled={this.state.pageActive == 1}/>
-				<Pagination.Prev onClick={this.setPagePrev.bind(this)} disabled={this.state.pageActive == 1}/>
-			</Fragment>
-		);
-		if (this.state.pageActive > (adjacents)) {
-			items.push(<Pagination.Ellipsis key="ellipsis-left" />)
-		}
-		pmin = (this.state.pageActive > adjacents) ? (this.state.pageActive - adjacents) : 1;
-		pmax = (this.state.pageActive < (this.state.noOfPage - adjacents)) ? (this.state.pageActive + adjacents) : this.state.noOfPage
 
-		for (let i = pmin; i <= pmax; i++) {
-			if (i == this.state.pageActive) {
-				items.push(<Pagination.Item active key={i} >{i}</Pagination.Item>)				
-			}
-			else {
-				items.push(
-					<Pagination.Item key={i} onClick={() => { this.setPage(i) }} >{i}</Pagination.Item>
-				)
-			}
-		}
-
-		if (this.state.pageActive < ((this.state.noOfPage - adjacents) - 1)) {
-			items.push(<Pagination.Ellipsis key="ellipsis-right"/>)
-		}
-		items.push(
-			<Fragment key="right">
-				<Pagination.Next onClick={this.setPageNext.bind(this)} disabled={this.state.pageActive == 10 } />
-				<Pagination.Last onClick={this.setPageLast.bind(this)} disabled={this.state.pageActive == 10} />
-			</Fragment>
-		);
 		return (
 			<Fragment>
-				<ModuleHeader text="UI Bootstrap"/>
+				<ModuleHeader text="UI Bootstrap">
+					<span>File location: <code>/scripts/container/layout/ui/bootstrap.js</code></span>
+				</ModuleHeader>
 				<Row>
 					{ /* Buttons Checkbox */}
 					<Col sm={12}>
@@ -327,24 +295,40 @@ export default class UIBootstrap extends Component {
 							<div className="card-header">
 								<h2>Pagination
 									<small>
-										<a className="c-gray" target="_blank" href="https://react-bootstrap.github.io/components/pagination/">React-Bootstrap Pagination</a>
+										<a className="c-gray" target="_blank" href="https://react-bootstrap.github.io/components/pagination/">
+											React-Bootstrap Pagination
+										</a>
 									</small>
 								</h2>
 							</div>
 							<div className="card-body card-padding">
 								<p>
+									<b>Custom Component Location</b><code>/scripts/components/paginate.js</code> <br/>
+									<b>Sample</b><code> {'<Paginate total={20} currentPage={1} method={this.nextPage.bind(this)} bsSize="large"/>'}</code><br/>
+									<b>Component Props</b> <br/>
+									<span><b>total</b>: Total Number of page</span><br/>
+									<span><b>currentPage</b>: Current Active page</span><br/>
+									<span><b>method</b>: Method to be called when click the next, prev, first, last, page number and has to parameter. and parameter is the click page</span><br />
+									<b>Optional Props</b> <br />
+									<span><b>bsSize</b>: bsSize to be added in React-Bootstrap Pagination component please refer to React-Bootstrap Pagination docs</span><br />
+									<span><b>className</b>: className to be added in React-Bootstrap Pagination component</span>
+									
+								</p>
+								<p>
 									<b>Pagination</b> - provide pagination links for your site or app with the multi-page pagination component, or the simpler pager alternative.
 								</p>
-								<Pagination bsSize="large">{items}</Pagination>
+								<Paginate total={this.state.total} currentPage={this.state.currentPage} method={this.nextPage.bind(this)} bsSize="large"/>
 								<br />
 
-								<Pagination bsSize="medium">{items}</Pagination>
+								<Paginate total={this.state.total} currentPage={this.state.currentPage} method={this.nextPage.bind(this)} bsSize="medium"/>
 								<br />
 
-								<Pagination bsSize="small">{items}</Pagination>
+								<Paginate total={this.state.total} currentPage={this.state.currentPage} method={this.nextPage.bind(this)} bsSize="small"/>
+								<br />
 								<br/>
 								<p> <b>Cutom</b> - Add <code>.custom</code> to <code>Pagination</code> bootstrap component </p>
-								<Pagination bsSize="small" className="custom">{items}</Pagination>
+								<Paginate total={this.state.total} currentPage={this.state.currentPage} method={this.nextPage.bind(this)} className="custom"/>
+								
 								<p>
 									<b>Pager</b> - quick previous and next links for simple pagination implementations with light markup and styles. It's great for simple sites like blogs or magazines.
 								</p>

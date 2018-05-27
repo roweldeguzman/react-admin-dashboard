@@ -3,19 +3,30 @@ import ModuleHeader from '../../../common/module-header'
 
 import { Row, Col, Tab, NavDropdown, MenuItem } from 'react-bootstrap';
 
+import Paginate from '../../../components/paginate'
+
+
 const config = require("../../../helper/config").config;
+
 export default class ListView extends Component {
 	constructor(props) {
 		super(props)
-
 		this.state = {
-			listviewSearch: false
+			listviewSearch: false,
+			total: 10,
+			currentPage: 1,			
 		}
+
 	}
 	showSearch(){
 		this.setState({
 			listviewSearch: !this.state.listviewSearch
 		})
+	}
+	getData(page){
+		this.setState({
+			currentPage: page
+		});
 	}
 	render() {
 		const DropdownShort = () => {
@@ -34,7 +45,6 @@ export default class ListView extends Component {
 		return(
 			<Fragment>
 				<ModuleHeader text="Listview" />
-					
 				<Row>
 					<Col sm={12}>
 						<div className="card">
@@ -133,7 +143,7 @@ export default class ListView extends Component {
 												<i className="input-helper"></i>
 											</label>
 										</div>
-										<div className="pull-left">											
+										<div className="pull-left">
 											<img className="lv-img-sm" src={`${config.asset_url}/assets/img/profile-pics/1.jpg`} />
 										</div>
 										<div className="media-body">
@@ -143,7 +153,52 @@ export default class ListView extends Component {
 											<DropdownShort />
 										</div>
 									</div>
+
+									<div className="lv-item media">
+										<div className="checkbox pull-left">
+											<label>
+												<input type="checkbox" />
+												<i className="input-helper"></i>
+											</label>
+										</div>
+										<div className="pull-left">
+											<img className="lv-img-sm" src={`${config.asset_url}/assets/img/profile-pics/2.jpg`} />
+										</div>
+										<div className="media-body">
+											<div className="lv-title">Dulla vel metus scelerisque ante sollicitudin commodo purus odio</div>
+											<small className="lv-small">Nunc quis diam diamurabitur at dolor elementum, dictum turpis vel</small>
+											<ul className="lv-attrs">
+												<li>Date Created: 09/06/1988</li>
+												<li>Members: 78954</li>
+												<li>Published: No</li>
+											</ul>
+											<DropdownShort />
+										</div>
+									</div>
+
+									<div className="lv-item media">
+										<div className="checkbox pull-left">
+											<label>
+												<input type="checkbox" />
+												<i className="input-helper"></i>
+											</label>
+										</div>
+										<div className="media-body">
+											<div className="lv-title">Dulla vel metus scelerisque ante sollicitudin commodo purus odio</div>
+											<small className="lv-small">Nunc quis diam diamurabitur at dolor elementum, dictum turpis vel</small>
+											<ul className="lv-attrs">
+												<li>Date Created: 09/06/1988</li>
+												<li>Members: 78954</li>
+												<li>Published: No</li>
+											</ul>
+
+											<DropdownShort />
+										</div>
+									</div>
 								</div>
+							</div>
+							<div className="lv-pagination">
+								<Paginate total={this.state.total} currentPage={this.state.currentPage} method={this.getData.bind(this)} className="custom"/>
 							</div>
 						</div>
 					</Col>

@@ -273,11 +273,8 @@ class SideBar extends Component {
 										<li>
 											<NavLink className="sub" to={`/sample-pages/list-view`} activeClassName="active">List View</NavLink>
 										</li>
-										<li className="hidden">
-											<a className="sub">Messages</a>
-										</li>
 										<li>
-											<a className="sub">Pricing Table</a>
+											<NavLink className="sub" to={`/sample-pages/pricing-table`} activeClassName="active">Pricing Table</NavLink>
 										</li>
 										<li className="hidden">
 											<a className="sub">Contacts</a>

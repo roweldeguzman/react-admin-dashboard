@@ -1,0 +1,226 @@
+main.pricing-main-container{
+	margin-left: 0 !important;
+	margin-top: 0 !important;
+}
+*{ transition:all 0.3s ease-out 0s; }
+.pricing-container{
+	height: 100%; 
+	border-radius: 3px; 
+	text-align: center; 
+	padding-top: 15px; 
+	padding-bottom: 15px;
+	transition: all 0.7s ease-out 0s;
+	box-shadow: 0px 3px 10px rgba(255, 255, 255, 0);
+	&:hover{
+		transition: all .3s ease-in-out 0s;
+		box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.25);
+		& .prcing-btn{
+			opacity: 1 !important;
+			background: #e91e63 !important;
+			color: #FFF !important;
+		}
+		& i{
+			color: #e91e63 !important;
+		}
+
+	}
+	h4{ color: gray; }
+	.icon-container{
+		width: 100px; 
+		height: 100px; 
+		margin: auto; 
+		line-height: 100px; 
+		border-radius: 50%; 
+		border: 1px solid #CCC;
+		i{
+			font-size: 50px; vertical-align: middle;
+		}
+	}
+	.price-desc-container{
+		margin-top: 30px;
+		span{
+			font-size: 30px;
+			color: gray;
+		}
+		p{
+			color: gray;
+		}
+	}
+	.prcing-btn{
+		width: 200px;
+		height: 40px;
+		border-radius: 30px;
+		opacity: 0.7 !important;
+	}
+}
+
+
+/* second registration */
+.pricing  hr{ 
+	width: 80%; 
+	margin-left: auto; 
+	margin-right: auto; 
+	background-color: transparent !important;
+	margin-top: 18px !important; 
+	margin-bottom: 18px !important;
+	border: 0; 
+	border-top: 1px solid #eeeeee;
+}
+.pricing i{
+	margin-left: 10%; 
+	font-weight: bold; 
+	font-size: 16px;
+	&.zmdi-check{
+		color: green;
+	}
+	&.zmdi-close{
+		color: #E4354F;
+	}
+}
+.pricing-btn{
+	width: 200px !important;
+	height: 40px !important;
+	border-radius: 30px !important;
+	opacity: 0.7 !important;
+}
+.pricing-btn:hover,.pricing-btn:focus{ 
+	background-color: #3C3C3C; 
+	opacity: 1 !important; 
+	color: gray; z-index: 0;
+}
+/*===========================
+first Pricing
+=============================*/
+.pricing-first-holder{
+	background: #fff; 
+	margin-top: 10px; 
+	border-top-left-radius: 3px;
+}
+.pricing-first-head{
+	background-color: #195F7A; 
+	color: #fff; 
+	border-top-left-radius: 3px;
+}
+.pricing-first-head-text{
+	text-align: center; 
+	padding-top: 5px; 
+	font-size: 15px;
+}
+.pricing-first-type{
+	font-size: 30px; 
+}
+.pricing-first-desc{
+	font-size: 16px; 
+	text-shadow: 0px 2px 5px #333; 
+	padding-bottom: 5px;
+}
+.pricing-first-footer{
+	background: #195F7A; 
+	padding: 10px; 
+	border-bottom-left-radius: 3px;
+}
+/*===========================
+Second Pricing
+=============================*/
+.pricing-second-holder{
+	background: #fff; 
+	margin-top: 10px; 
+	border-top-right-radius: 3px;
+}
+.pricing-second-head{
+	background-color: #195F7A; 
+	color: #fff; 
+	border-top-right-radius: 3px;
+}
+.pricing-second-head-text{
+	text-align: center; 
+	padding-top: 5px; 
+	font-size: 15px;
+}
+.pricing-second-type{
+	font-size: 30px;
+}
+.pricing-second-desc{
+	font-size: 16px; 
+	text-shadow: 0px 2px 5px #333; 
+	padding-bottom: 5px;
+}
+.pricing-second-footer{
+	background: #195F7A; 
+	padding: 10px; 
+	border-bottom-right-radius: 3px;
+}
+/*===========================
+Third Pricing
+=============================*/
+#pricing-third-main{
+	padding: 0px; 
+	z-index: 3; 
+	padding-top: -15px; 
+	box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.15); 
+	border-radius: 5px;
+}
+.pricing-third-holder{
+	background-color: #fff; border-radius: 5px;
+}
+.pricing-third-head{
+	background-color: #3A8793; 
+	color: #fff; 
+	border-top-left-radius: 5px;  
+	border-top-right-radius: 5px;
+}
+.pricing-third-head-text{
+	text-align: center; padding: 5px; font-size: 15px;
+}
+.pricing-third-type{
+	font-size: 30px;
+}
+.pricing-third-desc{
+	font-size: 16px; 
+	text-shadow: 0px 2px 5px #333; 
+	padding-bottom: 9px;
+}
+.pricing-third-footer{
+	background-color: #AAD8DF; 
+	padding: 10px 10px 20px 10px; 
+	border-bottom-left-radius: 3px; 
+	border-bottom-right-radius: 3px;   
+}
+
+/*===========================
+Registration
+=============================*/
+#margin-order{
+	margin-left: 100px;
+}
+#registration-price-head{
+	text-align: right;
+}
+@media all and (min-width:320px) and (max-width:767px){
+	.pricing-first-head,.pricing-second-head{
+		border-top-left-radius: 3px; 
+		border-top-right-radius: 3px;
+	}
+	.pricing-first-footer,.pricing-second-footer{
+		border-bottom-left-radius: 3px; 
+		border-bottom-right-radius: 3px;    
+	}
+	.pricing-third-footer{
+		background-color: #AAD8DF; 
+		padding: 10px; 
+		border-bottom-left-radius: 3px; 
+		border-bottom-right-radius: 3px;
+	}         
+	#pricing-third-main{
+		margin-top: 10px;
+	}
+	#margin-order{
+		margin-left: 0;
+	}
+	
+}
+@media all and (min-width:320px) and (max-width:479px){
+	#registration-price-head{
+		text-align: left;
+	}
+}

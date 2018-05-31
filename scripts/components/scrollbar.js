@@ -46,6 +46,9 @@ export default class Scrollbar extends Component {
 		this._handlerByEvent.clear();
 		this.ps.destroy(this.reference);
 	}
+	componentWillUnmount() {
+		this.ps.destroy(this.reference);
+	}
 	setScrollTop(top) {
 		if (this.reference) {
 			this.reference.scrollTop = top;

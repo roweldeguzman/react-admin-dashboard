@@ -3,6 +3,8 @@ import InputMask from 'react-input-mask';
 
 const helper = require('../helper/helper').helper
 
+import PropTypes from 'prop-types'
+
 export default class UI extends Component {
 	constructor(props) {
 		super(props)
@@ -43,8 +45,6 @@ export default class UI extends Component {
 	}
 }
 
-
-
 export class Input extends UI {
 	constructor(props) {
 		super(props)
@@ -55,17 +55,24 @@ export class Input extends UI {
 	render() {
 		return (
 			<Fragment>
-				<div className="rg-line">
+				<div className={`${this.props.active} rg-line`}>
 					<input { ...this.props } onFocus={(e) => this.focus(e)} onBlur={(e) => this.blur(e)} />
 					<div className="rg-input-underline">
 						<span className="rg-input-ripple"></span>
 					</div>
 				</div>
-				{this.props.float ? <label className="rg-label">{this.props.float}</label> : ""}
+				{this.props.float !== "" ? <label className="rg-label">{this.props.float}</label> : ""}
 			</Fragment>
 			
 		)
 	}
+}
+Input.defaultProps = {
+	float: ""
+}
+Input.propTypes = {
+	float: PropTypes.string,
+	active: PropTypes.string
 }
 
 export class Inputmask extends UI{

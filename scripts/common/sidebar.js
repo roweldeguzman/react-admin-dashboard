@@ -286,13 +286,13 @@ class SideBar extends Component {
 											<a className="sub">Wall</a>
 										</li>
 										<li>
-											<a className="sub">Login</a>
+											<NavLink className="sub" to={`/login`}>Login</NavLink>
 										</li>
 										<li>
-											<a className="sub">Sign Up</a>
+											<NavLink className="sub" to={`/signup`}>Sign Up</NavLink>
 										</li>
 										<li>
-											<a className="sub">Forgot Password</a>
+											<NavLink className="sub" to={`/forgot-password`}>Forgot Password</NavLink>
 										</li>
 										<li>
 											<a className="sub">Login 2 and Sign Up 2 </a>

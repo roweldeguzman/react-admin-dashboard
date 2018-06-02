@@ -50,18 +50,24 @@ export class Input extends UI {
 		super(props)
 	}
 	componentDidMount(){
-
+		this.input.onfocus = (ev) => {
+			this.focus(ev)
+		}
+		this.input.onblur = (ev) => {
+			this.blur(ev)
+		}
 	}
 	render() {
+		const { float, active } = this.props
 		return (
 			<Fragment>
-				<div className={`${this.props.active} rg-line`}>
-					<input { ...this.props } onFocus={(e) => this.focus(e)} onBlur={(e) => this.blur(e)} />
+				<div className={`${active} rg-line`}>
+					<input { ...this.props } ref={(ref)=>{this.input = ref}} />
 					<div className="rg-input-underline">
 						<span className="rg-input-ripple"></span>
 					</div>
 				</div>
-				{this.props.float !== "" ? <label className="rg-label">{this.props.float}</label> : ""}
+				{float !== "" ? <label className="rg-label">{float}</label> : ""}
 			</Fragment>
 			
 		)
@@ -79,12 +85,19 @@ export class Inputmask extends UI{
 	constructor(props){
 		super(props)
 	}
-
+	componentDidMount() {
+		this.input.onfocus = (ev) => {
+			this.focus(ev)
+		}
+		this.input.onblur = (ev) => {
+			this.blur(ev)
+		}
+	}
 	render(){
 		return (
 			<Fragment>
 				<div className="rg-line">
-					<InputMask { ...this.props } onFocus={(e) => this.focus(e)} onBlur={(e) => this.blur(e)} />
+					<InputMask {...this.props} ref={(ref) => { this.input = ref }} />
 					<div className="rg-input-underline">
 						<span className="rg-input-ripple"></span>
 					</div>
@@ -113,12 +126,19 @@ export class Select extends UI {
 	constructor(props) {
 		super(props)
 	}
-	
+	componentDidMount() {
+		this.input.onfocus = (ev) => {
+			this.focus(ev)
+		}
+		this.input.onblur = (ev) => {
+			this.blur(ev)
+		}
+	}
 	render() {
 		return (
 			<Fragment>
 				<div className="rg-line select">
-					<select { ...this.props } onFocus={(e) => this.focus(e)} onBlur={(e) => this.blur(e)}>
+					<select {...this.props} ref={(ref) => { this.input = ref }}>
 						{this.props.children}
 					</select>
 					<div className="rg-input-underline">
@@ -136,12 +156,19 @@ export class Textarea extends UI {
 	constructor(props) {
 		super(props)
 	}
-
+	componentDidMount() {
+		this.input.onfocus = (ev) => {
+			this.focus(ev)
+		}
+		this.input.onblur = (ev) => {
+			this.blur(ev)
+		}
+	}
 	render() {
 		return (
 			<Fragment>
 				<div className="rg-line">
-					<textarea { ...this.props } onFocus={(e) => this.focus(e)} onBlur={(e) => this.blur(e)} ></textarea>
+					<textarea {...this.props} ref={(ref) => { this.input = ref }}></textarea>
 					<div className="rg-input-underline">
 						<span className="rg-input-ripple"></span>
 					</div>

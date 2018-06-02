@@ -1,6 +1,4 @@
-import React, { Component } from 'react'
-
-import $ from 'jquery'
+import React, { Component } from 'react';
 
 export default class Sparkline extends Component {
 	constructor(props) {
@@ -13,7 +11,9 @@ export default class Sparkline extends Component {
 		}
 	}
 	
-	componentDidMount(){ this.doChecking() }
+	componentDidMount(){
+		this.doChecking()
+	}
 
 	componentWillReceiveProps(nextProps) {
 		this.setState({

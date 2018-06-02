@@ -19,7 +19,7 @@ const history = createBrowserHistory()
 const store = createStore(allReducers)
 
 const routes = require('./route').routes;
-
+const helper = require('./helper/helper').helper
 class Applayout extends Component {
 	constructor(props) {
 		super(props)
@@ -69,12 +69,12 @@ class Applayout extends Component {
 	}
 
 	render() {
-		if (this.state.pathname == "/login" || this.state.pathname == "/signup" || this.state.pathname == "/forgot-password") {
+		if (helper.in_array(this.state.pathname, ["/login", "/signup", "/forgot-password", "/lock-screen", "/page404", "/loginSecond"])){
 			return (
 				<Router history={history}>
 					<Switch>
-						{routes.map((route, index) => (
-							<Route key={index} path={route.path} exact={route.exact} component={route.component} resource={route.resource} />
+						{routes.notLogged.map((route, index) => (
+							<Route key={index} path={route.path} exact={route.exact} component={route.component} />
 						))}
 					</Switch>
 				</Router>

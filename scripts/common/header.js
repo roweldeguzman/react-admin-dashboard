@@ -127,7 +127,7 @@ class Header extends Component {
 								</button>
 							</li>
 							<li className="hidden-xs">
-								<a className="navbar-brand" >React Admin Dashboard</a>
+								<a className="navbar-brand">React Admin Dashboard</a>
 							</li>
 
 							<NavDropdown eventKey={1} title={<img src={profile} />} noCaret className="pull-right has-image nav-image" id="dropdown-profile">

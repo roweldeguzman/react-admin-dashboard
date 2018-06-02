@@ -295,13 +295,13 @@ class SideBar extends Component {
 											<NavLink className="sub" to={`/forgot-password`}>Forgot Password</NavLink>
 										</li>
 										<li>
-											<a className="sub">Login 2 and Sign Up 2 </a>
+											<NavLink className="sub" to={`/loginSecond`}>Login 2 and Sign Up 2</NavLink>
 										</li>
 										<li>
-											<a className="sub" >Lock Screen</a>
+											<NavLink className="sub" to={`/lock-screen`}>Lock Screen</NavLink>
 										</li>
 										<li>
-											<a className="sub">Error 404</a>
+											<NavLink className="sub" to={`/page404`}>Error 404</NavLink>
 										</li>
 									</ul>
 								</Collapse>

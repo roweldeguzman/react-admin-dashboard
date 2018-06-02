@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Router, Route, NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 
 import Ripple from '../components/ripple';
@@ -11,8 +11,7 @@ export default class Login extends Component {
 		this.state = {
 			email: "rowel.deguzman@roweldev.com",
 			password: "password"
-		}
-		console.log(this.props.location)		
+		}		
 	}
 
 	onChange(ev){

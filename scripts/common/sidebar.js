@@ -235,8 +235,8 @@ class SideBar extends Component {
 									</div><span>Charts</span>
 								</NavLink>
 							</li>
-							<li className="sub-menu">
-								<a onClick={(e) => { this.toggleSubmenu(e) }} name="gallery">
+							<li className={`${this.state.gallery ? "toggled" : ""} sub-menu`}>
+								<a className={`${this.state.gallery && this.state.location == "gallery" ? "active" : ""} `} onClick={(e) => { this.toggleSubmenu(e) }} name="gallery">
 									<div className="icon-circle">
 										<i className="zmdi zmdi-image-alt"></i>
 									</div><span>Photo Gallery</span>
@@ -244,10 +244,10 @@ class SideBar extends Component {
 								<Collapse in={this.state.gallery}>
 									<ul className="list-unstyled">
 										<li>
-											<a className="sub">Default</a>
+											<NavLink className="sub" to={`/gallery/default`} activeClassName="active">Default</NavLink>
 										</li>
 										<li>
-											<a className="sub">Timeline</a>
+											<NavLink className="sub" to={`/gallery/timeline`} activeClassName="active">Timeline</NavLink>
 										</li>
 									</ul>
 								</Collapse>

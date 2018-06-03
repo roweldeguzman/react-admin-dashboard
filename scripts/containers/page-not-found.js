@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-class PageNotFound extends Component {
+export default class PageNotFound extends Component {
 	constructor(props) {
 		super(props);
 	}
@@ -9,4 +9,3 @@ class PageNotFound extends Component {
 		);
 	}
 }
-export default PageNotFound

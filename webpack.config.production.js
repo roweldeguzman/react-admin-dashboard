@@ -51,7 +51,7 @@ var CompressionPlugin = require('compression-webpack-plugin');
 module.exports = {
 	entry: './scripts/index',
 	output: {
-		path: path.join(__dirname, 'static'),
+		path: path.join(__dirname, 'dist/static'),
 		filename: 'bundle.js',
 		publicPath: '/'
 	},

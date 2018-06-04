@@ -21,7 +21,12 @@ export default class Timeline extends Component {
 			purchased: [
 				"4.jpg", "5.jpg", "6.jpg", "7.jpg", "8.jpg", "9.jpg", "10.jpg",
 				"11.jpg", "12.jpg", "13.jpg", "14.jpg", "15.jpg"
-			]
+			],
+			website: [
+				"1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg", "6.jpg", "7.jpg", "8.jpg", "9.jpg", "10.jpg",
+				"11.jpg", "12.jpg", "13.jpg", "14.jpg", "15.jpg", "16.jpg", "17.jpg"
+			],
+			print: ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg"]
 		}
 		this.lightGallery;
 	}
@@ -115,6 +120,46 @@ export default class Timeline extends Component {
 										<h2 className="ptb-title">Purchased for print</h2>
 										<div className="lightbox clearfix">
 											{this.state.purchased.map((photo, index) => (
+												<div key={index} data-src={`${config.asset_url}/assets/media/gallery/${photo}`}>
+													<div className="lightbox-item">
+														<img src={`${config.asset_url}/assets/media/gallery/thumbs/${photo}`} alt="" />
+													</div>
+												</div>
+											))}
+										</div>
+									</div>
+								</div>
+
+								<div className="p-timeline">
+									<div className="pt-line c-gray text-right">
+										<span className="d-block">2015</span>
+										01/06
+									</div>
+
+									<div className="pt-body">
+										<h2 className="ptb-title">For Website</h2>
+										<div className="lightbox clearfix">
+											{this.state.website.map((photo, index) => (
+												<div key={index} data-src={`${config.asset_url}/assets/media/gallery/${photo}`}>
+													<div className="lightbox-item">
+														<img src={`${config.asset_url}/assets/media/gallery/thumbs/${photo}`} alt="" />
+													</div>
+												</div>
+											))}
+										</div>
+									</div>
+								</div>
+
+								<div className="p-timeline">
+									<div className="pt-line c-gray text-right">
+										<span className="d-block">2015</span>
+										22/04
+									</div>
+
+									<div className="pt-body">
+										<h2 className="ptb-title">To Print and Review</h2>
+										<div className="lightbox clearfix">
+											{this.state.print.map((photo, index) => (
 												<div key={index} data-src={`${config.asset_url}/assets/media/gallery/${photo}`}>
 													<div className="lightbox-item">
 														<img src={`${config.asset_url}/assets/media/gallery/thumbs/${photo}`} alt="" />

@@ -43,7 +43,310 @@ class Chart extends Component {
 				}
 			}
 		}
+		this.barPloter;
+		this.donutPloter;
+		this.piePloter;
+
+		this.barChart = this.barChart.bind(this);
+		this.donutChart = this.donutChart.bind(this);
 	}
+
+	componentDidMount(){
+		this.barChart();
+		this.dynamicChart();
+		this.donutChart();
+	}
+	
+	barChart() {
+		$.plot($("#bar-chart"), this.barPloterData(), {
+			grid: {
+				borderWidth: 1,
+				borderColor: '#eee',
+				show: true,
+				hoverable: true,
+				clickable: true
+			},
+			tooltip: true,
+			tooltipOpts: {
+				content: "%s of %x = %y",
+				shifts: {
+					x: 20,
+					y: 0
+				},
+				defaultTheme: false,
+				cssClass: 'flot-tooltip'
+			},
+			yaxis: {
+				tickColor: '#eee',
+				tickDecimals: 0,
+				font: {
+					lineHeight: 13,
+					style: "normal",
+					color: "#9f9f9f",
+				},
+				shadowSize: 0
+			},
+
+			xaxis: {
+				tickColor: '#fff',
+				tickDecimals: 0,
+				font: {
+					lineHeight: 13,
+					style: "normal",
+					color: "#9f9f9f"
+				},
+				shadowSize: 0,
+			},
+
+			legend: {
+				container: '.flc-bar',
+				backgroundOpacity: 0.5,
+				noColumns: 0,
+				backgroundColor: "white",
+				lineWidth: 0
+			}
+		});
+	}
+	dynamicChart() {
+		var data = [],
+			totalPoints = 300,
+			j = 0;
+		function getRandomData() {
+
+			if (data.length > 0)
+				data = data.slice(1);
+			while (data.length < totalPoints) {
+				var prev = data.length > 0 ? data[data.length - 1] : 50,
+					y = prev + Math.random() * 10 - 5;
+
+				if (y < 0) {
+					y = 0;
+				} else if (y > 90) {
+					y = 90;
+				}
+				data.push(y);
+			}
+			var res = [];
+			for (var i = 0; i < data.length; ++i) {
+				res.push([j++, data[i]])
+			}
+
+			return res;
+		}
+		var updateInterval = 30;
+		var plot = $.plot("#dynamic-chart", [getRandomData()], {
+			series: {
+				label: "Server Process Data",
+				lines: {
+					show: true,
+					lineWidth: 0.2,
+					fill: 0.6
+				},
+
+				color: '#00BCD4',
+				shadowSize: 0
+			},
+			yaxis: {
+				min: 0,
+				max: 100,
+				tickColor: '#eee',
+				font: {
+					lineHeight: 13,
+					style: "normal",
+					color: "#9f9f9f",
+				},
+				shadowSize: 0,
+			},
+			xaxis: {
+				show: true,
+				tickColor: '#eee',
+				font: {
+					lineHeight: 13,
+					style: "normal",
+					color: "#9f9f9f",
+				},
+				shadowSize: 0,
+			},
+			grid: {
+				borderWidth: 1,
+				borderColor: '#eee',
+				labelMargin: 10,
+				hoverable: true,
+				clickable: true,
+				mouseActiveRadius: 6,
+			},
+			legend: {
+				container: '.flc-dynamic',
+				backgroundOpacity: 0.5,
+				noColumns: 0,
+				backgroundColor: "white",
+				lineWidth: 0
+			}
+		});
+
+		function update() {
+			plot.setData([getRandomData()]);
+			plot.setupGrid();
+			plot.draw();
+			setTimeout(update, updateInterval);
+		}
+		update();
+	}
+
+	donutChart() {
+		var pieData = [
+			{ data: 1, color: '#F44336', label: 'Toyota' },
+			{ data: 2, color: '#03A9F4', label: 'Nissan' },
+			{ data: 3, color: '#8BC34A', label: 'Hyundai' },
+			{ data: 4, color: '#FFEB3B', label: 'Scion' },
+			{ data: 4, color: '#009688', label: 'Daihatsu' },
+		];
+		$.plot('#pie-chart', this.donutPieChartData(), {
+			series: {
+				pie: {
+					show: true,
+					stroke: {
+						width: 2,
+					},
+				},
+			},
+			legend: {
+				container: '.flc-pie',
+				backgroundOpacity: 0.5,
+				noColumns: 0,
+				backgroundColor: "white",
+				lineWidth: 0
+			},
+			grid: {
+				hoverable: true,
+				clickable: true
+			},
+			tooltip: true,
+			tooltipOpts: {
+				content: "%p.0%, %s", // show percentages, rounding to 2 decimal places
+				shifts: {
+					x: 20,
+					y: 0
+				},
+				defaultTheme: false,
+				cssClass: 'flot-tooltip'
+			}
+
+		});
+
+		$.plot('#donut-chart', this.donutPieChartData(), {
+			series: {
+				pie: {
+					innerRadius: 0.5,
+					show: true,
+					stroke: {
+						width: 2,
+					},
+				},
+			},
+			legend: {
+				container: '.flc-donut',
+				backgroundOpacity: 0.5,
+				noColumns: 0,
+				backgroundColor: "white",
+				lineWidth: 0
+			},
+			grid: {
+				hoverable: true,
+				clickable: true
+			},
+			tooltip: true,
+			tooltipOpts: {
+				content: "%p.0%, %s", // show percentages, rounding to 2 decimal places
+				shifts: {
+					x: 20,
+					y: 0
+				},
+				defaultTheme: false,
+				cssClass: 'flot-tooltip'
+			}
+
+		});
+	}
+	donutPieChartData() {
+		var pieData = [
+			{ data: Math.floor(100 * Math.random()), color: '#F44336', label: 'Toyota' },
+			{ data: Math.floor(100 * Math.random()), color: '#03A9F4', label: 'Nissan' },
+			{ data: Math.floor(100 * Math.random()), color: '#8BC34A', label: 'Hyundai' },
+			{ data: Math.floor(100 * Math.random()), color: '#FFEB3B', label: 'Scion' },
+			{ data: Math.floor(100 * Math.random()), color: '#009688', label: 'Daihatsu' },
+		];
+
+		return pieData;
+	}
+	barPloterData() {
+		var data1 = [
+			[1, Math.floor(100 * Math.random())],
+			[2, Math.floor(100 * Math.random())],
+			[3, Math.floor(100 * Math.random())],
+			[4, Math.floor(100 * Math.random())],
+			[5, Math.floor(100 * Math.random())],
+			[6, Math.floor(100 * Math.random())],
+			[7, Math.floor(100 * Math.random())]
+		];
+		var data2 = [
+			[1, Math.floor(100 * Math.random())],
+			[2, Math.floor(100 * Math.random())],
+			[3, Math.floor(100 * Math.random())],
+			[4, Math.floor(100 * Math.random())],
+			[5, Math.floor(100 * Math.random())],
+			[6, Math.floor(100 * Math.random())],
+			[7, Math.floor(100 * Math.random())]
+		];
+		var data3 = [
+			[1, Math.floor(100 * Math.random())],
+			[2, Math.floor(100 * Math.random())],
+			[3, Math.floor(100 * Math.random())],
+			[4, Math.floor(100 * Math.random())],
+			[5, Math.floor(100 * Math.random())],
+			[6, Math.floor(100 * Math.random())],
+			[7, Math.floor(100 * Math.random())]
+		];
+		var barData = new Array();
+		barData.push({
+			data: data1,
+			label: 'Tokyo',
+			bars: {
+				show: true,
+				barWidth: 0.08,
+				order: 1,
+				lineWidth: 0,
+				fillColor: '#8BC34A'
+			}
+		});
+
+		barData.push({
+			data: data2,
+			label: 'Seoul',
+			bars: {
+				show: true,
+				barWidth: 0.08,
+				order: 2,
+				lineWidth: 0,
+				fillColor: '#00BCD4'
+			}
+		});
+
+		barData.push({
+			data: data3,
+			label: 'Beijing',
+			bars: {
+				show: true,
+				barWidth: 0.08,
+				order: 3,
+				lineWidth: 0,
+				fillColor: '#FF9800'
+			}
+		});
+
+		return barData;
+	}
+
 	updateSparkLine(){
 		this.props.dispatch(sparklineAction("updae"));
 	}
@@ -252,6 +555,89 @@ class Chart extends Component {
 							</div>
 						</div>
 					</Col>					
+				</Row>
+				<ModuleHeader text="Flot Charts">
+					<small>
+						Flot is a pure JavaScript plotting library for jQuery, with a focus on simple usage, attractive looks and interactive features
+						<a href="http://www.flotcharts.org/flot/examples/series-pie/index.html" target="_blank"> Read more...</a>
+					</small>
+				</ModuleHeader>
+				<Row>
+					<Col sm={6}>
+						<div className="card">
+							<div className="card-header">
+								<h2>Bar Chart</h2>
+								<ul className="actions">
+									<li>
+										<a onClick={this.updatePie.bind(this)} >
+											<i className="zmdi zmdi-refresh-alt"></i>
+										</a>
+									</li>
+								</ul>
+							</div>
+							<div className="card-body card-padding">
+								<div id="bar-chart" className="flot-chart"></div>
+								<div className="flc-bar"></div>
+							</div>
+						</div>
+					</Col>
+
+					<Col sm={6}>
+						<div className="card">
+							<div className="card-header">
+								<h2>Dynamic Chart</h2>
+								<ul className="actions">
+									<li>
+										<a onClick={this.updatePie.bind(this)} >
+											<i className="zmdi zmdi-refresh-alt"></i>
+										</a>
+									</li>
+								</ul>
+							</div>
+							<div className="card-body card-padding">
+								<div id="dynamic-chart" className="flot-chart"></div>
+								<div className="flc-dynamic"></div>
+							</div>
+						</div>
+					</Col>
+
+					<Col sm={6}>
+						<div className="card">
+							<div className="card-header">
+								<h2>Pie Chart</h2>
+								<ul className="actions">
+									<li>
+										<a onClick={this.updatePie.bind(this)} >
+											<i className="zmdi zmdi-refresh-alt"></i>
+										</a>
+									</li>
+								</ul>
+							</div>
+							<div className="card-body card-padding">
+								<div id="pie-chart" className="flot-chart-pie"></div>
+								<div className="flc-pie hidden-xs"></div>
+							</div>
+						</div>
+					</Col>
+
+					<Col sm={6}>
+						<div className="card">
+							<div className="card-header">
+								<h2>Donut Chart</h2>
+								<ul className="actions">
+									<li>
+										<a onClick={this.updatePie.bind(this)} >
+											<i className="zmdi zmdi-refresh-alt"></i>
+										</a>
+									</li>
+								</ul>
+							</div>
+							<div className="card-body card-padding">
+								<div id="donut-chart" className="flot-chart-pie"></div>
+								<div className="flc-donut hidden-xs"></div>
+							</div>
+						</div>
+					</Col>
 				</Row>
 			</Fragment>
 		)

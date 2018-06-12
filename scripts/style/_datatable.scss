@@ -1,0 +1,24 @@
+.ReactTable{
+	border: none !important;
+	& .rt-thead.-header {
+		box-shadow: none !important;
+	}
+	& .rt-th.rt-resizable-header {
+		outline: none;
+		padding: 13px !important;
+		padding-left: 30px !important;
+		text-transform: uppercase;
+		text-align: left !important;
+		vertical-align: middle;
+		font-weight: 500;
+		color: #333;
+	}
+	&.-striped {
+		border-bottom: none !important;
+	}
+	& .rt-td {
+		padding: 13px !important;
+		padding-left: 30px !important;
+	}
+	
+}

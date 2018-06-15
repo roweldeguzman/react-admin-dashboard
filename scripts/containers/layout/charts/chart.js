@@ -58,7 +58,7 @@ class Chart extends Component {
 	}
 	
 	barChart() {
-		$.plot($("#bar-chart"), this.barPloterData(), {
+		this.barPloter = $.plot($("#bar-chart"), this.barPloterData(), {
 			grid: {
 				borderWidth: 1,
 				borderColor: '#eee',
@@ -201,7 +201,7 @@ class Chart extends Component {
 			{ data: 4, color: '#FFEB3B', label: 'Scion' },
 			{ data: 4, color: '#009688', label: 'Daihatsu' },
 		];
-		$.plot('#pie-chart', this.donutPieChartData(), {
+		this.piePloter = $.plot('#pie-chart', this.donutPieChartData(), {
 			series: {
 				pie: {
 					show: true,
@@ -234,7 +234,7 @@ class Chart extends Component {
 
 		});
 
-		$.plot('#donut-chart', this.donutPieChartData(), {
+		this.donutPloter = $.plot('#donut-chart', this.donutPieChartData(), {
 			series: {
 				pie: {
 					innerRadius: 0.5,
@@ -365,6 +365,18 @@ class Chart extends Component {
 		this.state.sold.chart_ref.update(sold)
 		this.state.spam.chart_ref.update(spam)
 		this.state.profit.chart_ref.update(profit)
+	}
+	refreshBarChart() {
+		this.barPloter.setData(this.barPloterData());
+		this.barPloter.draw();
+	}
+	refreshPieChart() {
+		this.piePloter.setData(this.donutPieChartData());
+		this.piePloter.draw();
+	}
+	refreshDonutChart() {
+		this.donutPloter.setData(this.donutPieChartData());
+		this.donutPloter.draw();
 	}
 	render(){
 		const { sparkline } = this.props
@@ -569,7 +581,7 @@ class Chart extends Component {
 								<h2>Bar Chart</h2>
 								<ul className="actions">
 									<li>
-										<a onClick={this.updatePie.bind(this)} >
+										<a onClick={this.refreshBarChart.bind(this)} >
 											<i className="zmdi zmdi-refresh-alt"></i>
 										</a>
 									</li>
@@ -586,13 +598,6 @@ class Chart extends Component {
 						<div className="card">
 							<div className="card-header">
 								<h2>Dynamic Chart</h2>
-								<ul className="actions">
-									<li>
-										<a onClick={this.updatePie.bind(this)} >
-											<i className="zmdi zmdi-refresh-alt"></i>
-										</a>
-									</li>
-								</ul>
 							</div>
 							<div className="card-body card-padding">
 								<div id="dynamic-chart" className="flot-chart"></div>
@@ -607,7 +612,7 @@ class Chart extends Component {
 								<h2>Pie Chart</h2>
 								<ul className="actions">
 									<li>
-										<a onClick={this.updatePie.bind(this)} >
+										<a onClick={this.refreshPieChart.bind(this)} >
 											<i className="zmdi zmdi-refresh-alt"></i>
 										</a>
 									</li>
@@ -626,7 +631,7 @@ class Chart extends Component {
 								<h2>Donut Chart</h2>
 								<ul className="actions">
 									<li>
-										<a onClick={this.updatePie.bind(this)} >
+										<a onClick={this.refreshDonutChart.bind(this)} >
 											<i className="zmdi zmdi-refresh-alt"></i>
 										</a>
 									</li>

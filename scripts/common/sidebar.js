@@ -347,13 +347,6 @@ class SideBar extends Component {
 								</Collapse>
 							</li>
 							<li>
-								<a href="https://github.com/roweldeguzman/react-admin-dashboard" target="_blank">
-									<div className="icon-circle">
-										<i className="zmdi zmdi-shopping-cart"></i>
-									</div><span>Want it</span>
-								</a>
-							</li>
-							<li>
 								<a href="https://paypal.me/ngxAdminDashboard" target="_blank">
 									<div className="icon-circle">
 										<i className="zmdi zmdi-money"></i>

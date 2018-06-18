@@ -18,3 +18,9 @@ npm start
 Open http://localhost:5000
 ```
 
+### Other Info
+
+```
+browse scripts/helpter/config.js
+change the asset_url where you locate you assets folder. the default value is http://localhost:5000
+```
